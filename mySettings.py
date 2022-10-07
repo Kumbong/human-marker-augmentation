@@ -1,4 +1,3 @@
-# TODO: clean up.
 # Dense.
 def get_dense_settings(a):
     
@@ -27,10 +26,10 @@ def get_lstm_settings(a):
                 {'augmenter_type': 'lowerExtremity',
                  "poseDetector": 'OpenPose',
                  "idxDatasets": [idx for idx in range(0,1)],
-                 "scaleFactors": [0.9], # , 0.95, 1., 1.05, 1.1
+                 "scaleFactors": [0.9, 0.95, 1., 1.05, 1.1],
                  "nHUnits": 96,
                  "nHLayers": 2,
-                 "nEpochs": 3,
+                 "nEpochs": 50,
                  "batchSize": 64,
                  "idxFold": 0,
                  'learning_r': 5e-05,

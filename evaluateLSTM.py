@@ -17,7 +17,8 @@ plotResults = True
 
 # %% Paths
 if platform.system() == 'Linux':
-    pathMain = '/augmenter'
+    # To use docker.
+    pathMain = '/augmenter-cs230'
 else:
     pathMain = os.getcwd()    
 pathData = os.path.join(pathMain, "Data")

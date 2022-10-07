@@ -1,6 +1,6 @@
 # CS-230: Human body marker augmentation
 
-### Install requirements
+### Install requirements (see docker below too)
 1. Install [Anaconda](https://www.anaconda.com/)
 2. Fork and clone the repository to your machine.
 3. Open the Anaconda command prompt and create a conda environment: `conda create -n cs-230-project`
@@ -23,3 +23,10 @@
 - `splitData.py`: script to split the data into different sets.
 - `infoDatasets.py`: some details about the dataset.
 - `utilities.py`: various utilities.
+
+### Docker
+- You can also use docker. The following instructions worked for me on a machine where cuda and cudnn were installed, you should adjust the paths and names according to your working environment.
+- Build image: eg `docker build -t antoine/tensorflow:latest-gpu-0.1 .`
+- Train model: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/trainLSTM.py`
+- Evaluate model: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/evaluateLSTM.py`
+- The files might be locked after training, to unlock run `sudo chown -R $USER: $HOME`

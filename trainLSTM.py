@@ -18,7 +18,11 @@ runTraining = True
 saveTrainedModel = True
 
 # %% Paths.
-pathMain = os.getcwd()
+if platform.system() == 'Linux':
+    # To use docker.
+    pathMain = '/augmenter-cs230'
+else:
+    pathMain = os.getcwd()
 pathData = os.path.join(pathMain, "Data")
 pathData_all = os.path.join(pathData, "data_CS230")
 pathTrainedModels = os.path.join(pathMain, "trained_models_LSTM")
