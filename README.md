@@ -2,7 +2,7 @@
 
 ### Install requirements (see docker below too)
 1. Install [Anaconda](https://www.anaconda.com/)
-2. Fork and clone the repository to your machine.
+2. Clone the repository to your machine.
 3. Open the Anaconda command prompt and create a conda environment: `conda create -n cs-230-project`
 4. Activate the environment: `conda activate cs-230-project`
 5. Install [tensorflow with GPU support](https://www.tensorflow.org/install/pip) (you can probably also use CPU only if you train on a small part of the dataset).
