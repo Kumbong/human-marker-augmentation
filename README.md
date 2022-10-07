@@ -8,6 +8,9 @@
 5. Install [tensorflow with GPU support](https://www.tensorflow.org/install/pip) (you can probably also use CPU only if you train on a small part of the dataset).
 6. Install other dependencies. Navigate to the local directory where the repository is cloned, then: `python -m pip install -r requirements.txt`
 
+### Dataset
+- A subset of the dataset is available [here](https://drive.google.com/file/d/1zstU911Jc9_Y692pjhk8smBwRnOh5hr1/view?usp=sharing). Download it into augmenter-cs230/Data. The path of the first feature time sequence should be something like /augmenter-cs230/Data/data_CS230/feature_0.npy.
+
 ### Overview files
 **Main files**:
 - `trainLSTM.py`: script to train LSTM model.
