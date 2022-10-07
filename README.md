@@ -1,7 +1,6 @@
 # CS-230: Human body marker augmentation
 
 ### Install requirements
-- TODO
 1. Install [Anaconda](https://www.anaconda.com/)
 2. Fork and clone the repository to your machine.
 3. Open the Anaconda command prompt and create a conda environment: `conda create -n cs-230-project`
