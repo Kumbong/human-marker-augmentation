@@ -82,5 +82,5 @@ infoData = np.load(pathInfoData, allow_pickle=True).item()
 # %% Partition
 # Indices of the feature and response npy files for training, validation, test.
 pathPartition = os.path.join(pathData_all,
-                             'partition_lowerExtremity_OpenPose_0_09.npy')
+                             'partition_lowerExtremity_OpenPose_0_09_095_10_105_11.npy')
 partition = np.load(pathPartition, allow_pickle=True).item()
