@@ -1,6 +1,12 @@
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.log
+
+# Data
+Data/*
+!Data/subjectSplit.npy
 
 # TrainedModels
 trained_models_LSTM/*
