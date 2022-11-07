@@ -1,0 +1,87 @@
+2022-11-05 22:49:15.388749: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-11-05 22:49:15.523082: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-11-05 22:49:16.881366: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:16.911884: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:16.913288: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:16.914896: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-11-05 22:49:16.915220: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:16.916585: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:16.917930: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:17.344275: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:17.345065: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:17.345644: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-11-05 22:49:17.346200: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 20628 MB memory:  -> device: 0, name: NVIDIA A10G, pci bus id: 0000:00:1e.0, compute capability: 8.6
+Epoch 1/50
+2022-11-05 22:49:21.803572: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8401
+2022-11-05 22:49:21.948554: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+3300/3300 - 57s - loss: 0.0041 - mean_squared_error: 0.0041 - root_mean_squared_error: 0.0641 - val_loss: 7.9080e-04 - val_mean_squared_error: 7.9080e-04 - val_root_mean_squared_error: 0.0281 - 57s/epoch - 17ms/step
+Epoch 2/50
+3300/3300 - 53s - loss: 4.0416e-04 - mean_squared_error: 4.0416e-04 - root_mean_squared_error: 0.0201 - val_loss: 2.0381e-04 - val_mean_squared_error: 2.0381e-04 - val_root_mean_squared_error: 0.0143 - 53s/epoch - 16ms/step
+Epoch 3/50
+3300/3300 - 53s - loss: 1.4049e-04 - mean_squared_error: 1.4049e-04 - root_mean_squared_error: 0.0119 - val_loss: 1.0105e-04 - val_mean_squared_error: 1.0105e-04 - val_root_mean_squared_error: 0.0101 - 53s/epoch - 16ms/step
+Epoch 4/50
+3300/3300 - 53s - loss: 8.2950e-05 - mean_squared_error: 8.2950e-05 - root_mean_squared_error: 0.0091 - val_loss: 7.2608e-05 - val_mean_squared_error: 7.2608e-05 - val_root_mean_squared_error: 0.0085 - 53s/epoch - 16ms/step
+Epoch 5/50
+3300/3300 - 53s - loss: 6.3296e-05 - mean_squared_error: 6.3296e-05 - root_mean_squared_error: 0.0080 - val_loss: 6.4854e-05 - val_mean_squared_error: 6.4854e-05 - val_root_mean_squared_error: 0.0081 - 53s/epoch - 16ms/step
+Epoch 6/50
+3300/3300 - 53s - loss: 5.3763e-05 - mean_squared_error: 5.3763e-05 - root_mean_squared_error: 0.0073 - val_loss: 5.4823e-05 - val_mean_squared_error: 5.4823e-05 - val_root_mean_squared_error: 0.0074 - 53s/epoch - 16ms/step
+Epoch 7/50
+3300/3300 - 53s - loss: 4.8348e-05 - mean_squared_error: 4.8348e-05 - root_mean_squared_error: 0.0070 - val_loss: 5.3260e-05 - val_mean_squared_error: 5.3260e-05 - val_root_mean_squared_error: 0.0073 - 53s/epoch - 16ms/step
+Epoch 8/50
+3300/3300 - 53s - loss: 4.4700e-05 - mean_squared_error: 4.4700e-05 - root_mean_squared_error: 0.0067 - val_loss: 4.8077e-05 - val_mean_squared_error: 4.8077e-05 - val_root_mean_squared_error: 0.0069 - 53s/epoch - 16ms/step
+Epoch 9/50
+3300/3300 - 53s - loss: 4.2534e-05 - mean_squared_error: 4.2534e-05 - root_mean_squared_error: 0.0065 - val_loss: 4.7914e-05 - val_mean_squared_error: 4.7914e-05 - val_root_mean_squared_error: 0.0069 - 53s/epoch - 16ms/step
+Epoch 10/50
+3300/3300 - 53s - loss: 4.0171e-05 - mean_squared_error: 4.0171e-05 - root_mean_squared_error: 0.0063 - val_loss: 4.9645e-05 - val_mean_squared_error: 4.9645e-05 - val_root_mean_squared_error: 0.0070 - 53s/epoch - 16ms/step
+Epoch 11/50
+3300/3300 - 53s - loss: 3.8484e-05 - mean_squared_error: 3.8484e-05 - root_mean_squared_error: 0.0062 - val_loss: 4.7296e-05 - val_mean_squared_error: 4.7296e-05 - val_root_mean_squared_error: 0.0069 - 53s/epoch - 16ms/step
+Epoch 12/50
+3300/3300 - 53s - loss: 3.7571e-05 - mean_squared_error: 3.7571e-05 - root_mean_squared_error: 0.0061 - val_loss: 4.4693e-05 - val_mean_squared_error: 4.4693e-05 - val_root_mean_squared_error: 0.0067 - 53s/epoch - 16ms/step
+Epoch 13/50
+3300/3300 - 53s - loss: 3.6112e-05 - mean_squared_error: 3.6112e-05 - root_mean_squared_error: 0.0060 - val_loss: 4.4891e-05 - val_mean_squared_error: 4.4891e-05 - val_root_mean_squared_error: 0.0067 - 53s/epoch - 16ms/step
+Epoch 14/50
+3300/3300 - 53s - loss: 3.5267e-05 - mean_squared_error: 3.5267e-05 - root_mean_squared_error: 0.0059 - val_loss: 4.4126e-05 - val_mean_squared_error: 4.4126e-05 - val_root_mean_squared_error: 0.0066 - 53s/epoch - 16ms/step
+Epoch 15/50
+3300/3300 - 53s - loss: 3.4430e-05 - mean_squared_error: 3.4430e-05 - root_mean_squared_error: 0.0059 - val_loss: 4.2979e-05 - val_mean_squared_error: 4.2979e-05 - val_root_mean_squared_error: 0.0066 - 53s/epoch - 16ms/step
+Epoch 16/50
+3300/3300 - 53s - loss: 3.3629e-05 - mean_squared_error: 3.3629e-05 - root_mean_squared_error: 0.0058 - val_loss: 4.5074e-05 - val_mean_squared_error: 4.5074e-05 - val_root_mean_squared_error: 0.0067 - 53s/epoch - 16ms/step
+Epoch 17/50
+3300/3300 - 53s - loss: 3.3026e-05 - mean_squared_error: 3.3026e-05 - root_mean_squared_error: 0.0057 - val_loss: 4.3369e-05 - val_mean_squared_error: 4.3369e-05 - val_root_mean_squared_error: 0.0066 - 53s/epoch - 16ms/step
+Epoch 18/50
+3300/3300 - 53s - loss: 3.2094e-05 - mean_squared_error: 3.2094e-05 - root_mean_squared_error: 0.0057 - val_loss: 4.1956e-05 - val_mean_squared_error: 4.1956e-05 - val_root_mean_squared_error: 0.0065 - 53s/epoch - 16ms/step
+Epoch 19/50
+3300/3300 - 53s - loss: 3.1518e-05 - mean_squared_error: 3.1518e-05 - root_mean_squared_error: 0.0056 - val_loss: 4.1986e-05 - val_mean_squared_error: 4.1986e-05 - val_root_mean_squared_error: 0.0065 - 53s/epoch - 16ms/step
+Epoch 20/50
+3300/3300 - 53s - loss: 3.1241e-05 - mean_squared_error: 3.1241e-05 - root_mean_squared_error: 0.0056 - val_loss: 4.3563e-05 - val_mean_squared_error: 4.3563e-05 - val_root_mean_squared_error: 0.0066 - 53s/epoch - 16ms/step
+Epoch 21/50
+3300/3300 - 53s - loss: 3.0916e-05 - mean_squared_error: 3.0916e-05 - root_mean_squared_error: 0.0056 - val_loss: 4.1225e-05 - val_mean_squared_error: 4.1225e-05 - val_root_mean_squared_error: 0.0064 - 53s/epoch - 16ms/step
+Epoch 22/50
+3300/3300 - 53s - loss: 3.0220e-05 - mean_squared_error: 3.0220e-05 - root_mean_squared_error: 0.0055 - val_loss: 4.0698e-05 - val_mean_squared_error: 4.0698e-05 - val_root_mean_squared_error: 0.0064 - 53s/epoch - 16ms/step
+Epoch 23/50
+3300/3300 - 53s - loss: 2.9867e-05 - mean_squared_error: 2.9867e-05 - root_mean_squared_error: 0.0055 - val_loss: 4.0294e-05 - val_mean_squared_error: 4.0294e-05 - val_root_mean_squared_error: 0.0063 - 53s/epoch - 16ms/step
+Epoch 24/50
+3300/3300 - 53s - loss: 2.9916e-05 - mean_squared_error: 2.9916e-05 - root_mean_squared_error: 0.0055 - val_loss: 4.1961e-05 - val_mean_squared_error: 4.1961e-05 - val_root_mean_squared_error: 0.0065 - 53s/epoch - 16ms/step
+Epoch 25/50
+3300/3300 - 53s - loss: 2.9300e-05 - mean_squared_error: 2.9300e-05 - root_mean_squared_error: 0.0054 - val_loss: 4.0111e-05 - val_mean_squared_error: 4.0111e-05 - val_root_mean_squared_error: 0.0063 - 53s/epoch - 16ms/step
+Epoch 26/50
+3300/3300 - 53s - loss: 2.8867e-05 - mean_squared_error: 2.8867e-05 - root_mean_squared_error: 0.0054 - val_loss: 4.0075e-05 - val_mean_squared_error: 4.0075e-05 - val_root_mean_squared_error: 0.0063 - 53s/epoch - 16ms/step
+Epoch 27/50
+3300/3300 - 53s - loss: 2.8462e-05 - mean_squared_error: 2.8462e-05 - root_mean_squared_error: 0.0053 - val_loss: 3.8891e-05 - val_mean_squared_error: 3.8891e-05 - val_root_mean_squared_error: 0.0062 - 53s/epoch - 16ms/step
+Epoch 28/50
+3300/3300 - 53s - loss: 2.8268e-05 - mean_squared_error: 2.8268e-05 - root_mean_squared_error: 0.0053 - val_loss: 4.0741e-05 - val_mean_squared_error: 4.0741e-05 - val_root_mean_squared_error: 0.0064 - 53s/epoch - 16ms/step
+Epoch 29/50
+3300/3300 - 53s - loss: 2.7960e-05 - mean_squared_error: 2.7960e-05 - root_mean_squared_error: 0.0053 - val_loss: 3.8866e-05 - val_mean_squared_error: 3.8866e-05 - val_root_mean_squared_error: 0.0062 - 53s/epoch - 16ms/step
+Epoch 30/50
+3300/3300 - 53s - loss: 2.7750e-05 - mean_squared_error: 2.7750e-05 - root_mean_squared_error: 0.0053 - val_loss: 3.7830e-05 - val_mean_squared_error: 3.7830e-05 - val_root_mean_squared_error: 0.0062 - 53s/epoch - 16ms/step
+Epoch 31/50
+3300/3300 - 53s - loss: 2.7273e-05 - mean_squared_error: 2.7273e-05 - root_mean_squared_error: 0.0052 - val_loss: 3.8964e-05 - val_mean_squared_error: 3.8964e-05 - val_root_mean_squared_error: 0.0062 - 53s/epoch - 16ms/step
+Epoch 32/50
+3300/3300 - 53s - loss: 2.7273e-05 - mean_squared_error: 2.7273e-05 - root_mean_squared_error: 0.0052 - val_loss: 3.8155e-05 - val_mean_squared_error: 3.8155e-05 - val_root_mean_squared_error: 0.0062 - 53s/epoch - 16ms/step
+Epoch 33/50
+Restoring model weights from the end of the best epoch: 30.
+3300/3300 - 53s - loss: 2.7302e-05 - mean_squared_error: 2.7302e-05 - root_mean_squared_error: 0.0052 - val_loss: 4.0664e-05 - val_mean_squared_error: 4.0664e-05 - val_root_mean_squared_error: 0.0064 - 53s/epoch - 16ms/step
+Epoch 33: early stopping
+2022-11-05 23:18:25.963396: W tensorflow/core/kernels/data/generator_dataset_op.cc:108] Error occurred when finalizing GeneratorDataset iterator: FAILED_PRECONDITION: Python interpreter state is not initialized. The process may be terminated.
+	 [[{{node PyFunc}}]]
