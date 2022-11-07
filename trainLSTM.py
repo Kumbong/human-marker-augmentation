@@ -20,7 +20,7 @@ saveTrainedModel = True
 # %% Paths.
 if platform.system() == 'Linux':
     # To use docker.
-    pathMain = '/augmenter-cs230'
+    pathMain = '/home/ubuntu/cs230-project/augmenter-cs230'
 else:
     pathMain = os.getcwd()
 pathData = os.path.join(pathMain, "Data")
