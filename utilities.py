@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial.transform import Rotation as R
+import dataman
 
 # %% Metrics.
 def getMetrics(features, responses, model):
@@ -392,4 +393,19 @@ def rotateArray(data, axis, value, inDegrees=True):
         c = data[:,i*3:(i+1)*3]        
         data_out[:,i*3:(i+1)*3] = r.apply(c)
         
+    return data_out
+
+# %% TRC format to numpy format.
+def TRC2numpy(pathFile, markers):
+    
+    trc_file = dataman.TRCFile(pathFile)
+    time = trc_file.time
+    num_frames = time.shape[0]
+    data = np.zeros((num_frames, len(markers)*3))
+    for count, marker in enumerate(markers):
+        data[:,3*count:3*count+3] = trc_file.marker(marker)    
+    this_dat = np.empty((num_frames, 1))
+    this_dat[:, 0] = time
+    data_out = np.concatenate((this_dat, data), axis=1)
+    
     return data_out

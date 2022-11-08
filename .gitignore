@@ -6,5 +6,14 @@ __pycache__/
 Data/*
 !Data/subjectSplit.npy
 
+# Test
+test/*
+!test/failure_example.trc
+!test/augmented_failure_example_reference.trc
+
 # TrainedModels
 trained_models_LSTM/*
+!trained_models_LSTM/reference_model.json
+!trained_models_LSTM/reference_trainFeatures_mean.npy
+!trained_models_LSTM/reference_trainFeatures_std.npy
+!trained_models_LSTM/reference_weights.h5
