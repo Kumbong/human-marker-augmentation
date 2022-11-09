@@ -1,5 +1,6 @@
 import numpy as np
 import tensorflow as tf
+import itertools
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.initializers import glorot_normal
@@ -97,7 +98,10 @@ def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
     
     # Optimizer.
     opt=Adam(learning_rate=learning_r)
-    
+
+    if loss_f == 'output_length_constr':
+        loss_f = output_len_constr_loss([]) ## Add constraints here
+
     # Loss function.
     model.compile(
             optimizer=opt,
@@ -119,4 +123,19 @@ def weighted_mean_squared_error(weights):
         squared_difference = tf.square(y_true - y_pred)        
         weighted_squared_difference = weights * squared_difference  
         return tf.reduce_mean(weighted_squared_difference, axis=-1)
+    return loss
+
+def output_len_constr_loss(constraints):
+    #reduce list of list of tuples to list of tuples (should move to constraint calc function)
+    reduced_constraints = list(itertools.chain.from_iterable(constraints))
+    def loss(y_true, y_pred):
+        mse_loss = tf.reduce_mean(tf.square(y_true - y_pred), axis = [1, 2])
+
+        constrained_pairwise_markers_coords = tf.gather(y_pred, indices=reduced_constraints, axis = -1)
+        constrained_pairwise_markers_dist = tf.reduce_mean(tf.square(constrained_pairwise_markers_coords[:, :, :, 1, :] - constrained_pairwise_markers_coords[:, :, :, 0, :]), axis=-1)
+        one_time_step_dist_diff_mean = tf.reduce_mean(tf.square(constrained_pairwise_markers_dist[:, 1:, :] - constrained_pairwise_markers_dist[:, :-1, :]), axis = -1)
+        total_constraint_violation = tf.reduce_mean(one_time_step_dist_diff_mean, axis = -1)
+
+        return mse_loss + total_constraint_violation
+
     return loss
