@@ -133,8 +133,8 @@ def output_len_constr_loss(constraints):
 
         constrained_pairwise_markers_coords = tf.gather(y_pred, indices=reduced_constraints, axis = -1)
         constrained_pairwise_markers_dist = tf.reduce_mean(tf.square(constrained_pairwise_markers_coords[:, :, :, 1, :] - constrained_pairwise_markers_coords[:, :, :, 0, :]), axis=-1)
-        one_time_step_dist_diff_mean = tf.reduce_mean(tf.square(constrained_pairwise_markers_dist[:, 1:, :] - constrained_pairwise_markers_dist[:, :-1, :]), axis = -1)
-        total_constraint_violation = tf.reduce_mean(one_time_step_dist_diff_mean, axis = -1)
+        one_time_step_dist_diff_mean = tf.reduce_sum(tf.square(constrained_pairwise_markers_dist[:, 1:, :] - constrained_pairwise_markers_dist[:, :-1, :]), axis = -1)
+        total_constraint_violation = tf.reduce_sum(one_time_step_dist_diff_mean, axis = -1)
 
         return mse_loss + total_constraint_violation
 
