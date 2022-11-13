@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial.transform import Rotation as R
+from itertools import combinations
 import dataman
 
 # %% Metrics.
@@ -159,7 +160,11 @@ def finalize(existingAggregate):
     else:
         (mean, variance, sampleVariance) = (mean, M2 / count, M2 / (count - 1))
         return (mean, variance, sampleVariance)
-  
+
+#generates all possible combinations of indices of lists of markers  
+def translateMarkers(markers, response_markers):
+    return list(map(lambda x : list(combinations([(response_markers.index(b)*3, response_markers.index(b)*3 +1, response_markers.index(b)*3 + 2) for b in x], 2)), markers))
+
 # %% Markers
 def getAllMarkers():
     
