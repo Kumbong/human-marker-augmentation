@@ -69,7 +69,7 @@ def get_dense_model(nFirstUnits, nHiddenUnits, nHiddenLayers, input_dim,
 
 # %% LSTM model.
 def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
-                   loss_f, bidirectional=False):
+                   loss_f, bidirectional=False, constraints=None):
     
     # For reproducibility.
     np.random.seed(1)
@@ -100,7 +100,7 @@ def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
     opt=Adam(learning_rate=learning_r)
 
     if loss_f == 'output_length_constr':
-        loss_f = output_len_constr_loss([]) ## Add constraints here
+        loss_f = output_len_constr_loss(constraints)
 
     # Loss function.
     model.compile(

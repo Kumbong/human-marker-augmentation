@@ -100,6 +100,7 @@ else:
 # %% Helper indices (no need to change that).
 # Get indices features/responses based on augmenter_type and poseDetector.
 feature_markers_all, response_markers_all = getAllMarkers()
+constraints = None
 if augmenter_type == 'fullBody':
     if poseDetector == 'OpenPose':
         from utilities import getOpenPoseMarkers_fullBody
@@ -113,9 +114,10 @@ if augmenter_type == 'fullBody':
         raise ValueError('poseDetector not recognized')        
 elif augmenter_type == 'lowerExtremity':
     if poseDetector == 'OpenPose':
-        from utilities import getOpenPoseMarkers_lowerExtremity
-        _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
+        from utilities import getOpenPoseMarkers_lowerExtremity, getMarkers_lowerExtremity_constraints, translateConstraints
+        _, response_markers, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getOpenPoseMarkers_lowerExtremity())
+        constraints = translateConstraints(getMarkers_lowerExtremity_constraints(), response_markers)
     elif poseDetector == 'mmpose':
         from utilities import getMMposeMarkers_lowerExtremity
         _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
@@ -261,7 +263,7 @@ val_generator = lstmDataGenerator(partition['val'], pathData_all, **params)
 # %% Initialize model.   
 model = get_lstm_model(input_dim=nFeature_markers+nAddFeatures, output_dim=nResponse_markers,
                        nHiddenLayers=nHLayers, nHUnits=nHUnits, learning_r=learning_r, loss_f=loss_f,
-                       bidirectional=bidirectional)
+                       bidirectional=bidirectional, constraints=constraints)
 
 # %% Train model.
 if runTraining:
