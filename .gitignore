@@ -7,9 +7,9 @@ Data/*
 !Data/subjectSplit.npy
 
 # Test
-test/*
-!test/failure_example.trc
-!test/augmented_failure_example_reference.trc
+# test/*
+# !test/failure_example.trc
+# !test/augmented_failure_example_reference.trc
 
 # TrainedModels
 trained_models_LSTM/*

@@ -10,12 +10,12 @@ from mySettings import get_lstm_settings
 # %% User settings.
 # Select the "case" you want to test, see getSettings for case's settings. For
 # the best model, set to "best".
-case = "reference"
+case = "1"
 
 # %% Paths.
 if platform.system() == 'Linux':
     # To use docker.
-    pathMain = '/augmenter-cs230'
+    pathMain = os.getcwd() #'/augmenter-cs230'
 else:
     pathMain = os.getcwd()
 pathTrainedModels = os.path.join(pathMain, "trained_models_LSTM", '')
