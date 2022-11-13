@@ -8,7 +8,7 @@ import tensorflow as tf
 from mySettings import get_lstm_settings
 from myModels import get_lstm_model
 from myDataGenerator import lstmDataGenerator
-from utilities import getAllMarkers, rotateArray
+from utilities import getAllMarkers, rotateArray, plotLossOverEpochs
 
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
@@ -272,6 +272,8 @@ if runTraining:
                         epochs=nEpochs, batch_size=batchSize, verbose=2,
                         use_multiprocessing=use_multiprocessing, workers=nWorkers,
                         callbacks=[callback])
+    #print(history.history)
+    plotLossOverEpochs(history.history,'training_'+loss_f+'_'+str(nHLayers)+'_'+str(nHUnits)+'_'+str(learning_r))
 
 # %% Save model.
 if saveTrainedModel:
