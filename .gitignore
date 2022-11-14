@@ -13,6 +13,8 @@ Data/*
 
 # TrainedModels
 trained_models_LSTM/*
+!trained_models_LSTM/base_plot.png
+!trained_models_LSTM/new_plot.png
 !trained_models_LSTM/reference_model.json
 !trained_models_LSTM/reference_trainFeatures_mean.npy
 !trained_models_LSTM/reference_trainFeatures_std.npy
