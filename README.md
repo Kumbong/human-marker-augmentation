@@ -25,6 +25,7 @@
 - `infoDatasets.py`: some details about the dataset.
 - `utilities.py`: various utilities.
 
+(please ignore the following section for now)
 ### Docker
 - You can also use docker. The following instructions worked for me on a machine where cuda and cudnn were installed, you should adjust the paths and names according to your working environment.
 - Build image: eg `docker build -t antoine/tensorflow:latest-gpu-0.1 .`
