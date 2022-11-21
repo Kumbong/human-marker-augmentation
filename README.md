@@ -10,6 +10,7 @@
 
 ### Dataset
 - A subset of the dataset is available [here](https://drive.google.com/file/d/1zstU911Jc9_Y692pjhk8smBwRnOh5hr1/view?usp=sharing). Download it into augmenter-cs230/Data. The path of the first feature time sequence should be something like /augmenter-cs230/Data/data_CS230/feature_0.npy.
+- The full dataset is available [here](https://drive.google.com/file/d/1oUlPlV58onFt6VGCOp01cfv6j-wfu60z/view?usp=sharing). Download it into augmenter-cs230/Data. The path of the first feature time sequence should be something like /augmenter-cs230/Data/data_CS230/feature_0.npy.
 
 ### Overview files
 **Main files**:
