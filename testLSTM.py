@@ -5,12 +5,15 @@ import copy
 import tensorflow as tf
 import platform
 
-from mySettings import get_lstm_settings
+from mySettings import get_lstm_settings, get_lstm_tuner_settings
 
 # %% User settings.
 # Select the "case" you want to test, see getSettings for case's settings. For
 # the best model, set to "best".
-case = "reference"
+case = "0"
+# Set hyperparameterTuning to True if the model was trained while tuning the
+# hyperparameters
+hyperparameterTuning = False
 
 # %% Paths.
 if platform.system() == 'Linux':
@@ -18,7 +21,16 @@ if platform.system() == 'Linux':
     pathMain = '/augmenter-cs230'
 else:
     pathMain = os.getcwd()
-pathTrainedModels = os.path.join(pathMain, "trained_models_LSTM", '')
+    
+if hyperparameterTuning:
+    pathParameterTuning = os.path.join(
+        pathMain, "trained_models_hyperparameter_tuning_LSTM")
+    pathParameterTuningModels = os.path.join(pathParameterTuning, 
+                                             "Models", str(case))
+    pathCModel = os.path.join(pathParameterTuningModels, "")
+else:
+    pathTrainedModels = os.path.join(pathMain, "trained_models_LSTM")
+    pathCModel = os.path.join(pathTrainedModels, "")
 
 # %% Failure example
 failure_case_name = 'failure_example'
@@ -33,7 +45,10 @@ featureWeight = True
 
 # %% Helper indices (no need to change that).
 # Get indices features/responses based on augmenter_type and poseDetector.
-settings = get_lstm_settings(case)
+if hyperparameterTuning:
+    settings = get_lstm_tuner_settings(case)
+else:
+    settings = get_lstm_settings(case)
 augmenter_type = settings["augmenter_type"]
 poseDetector = settings["poseDetector"]
 from utilities import getAllMarkers
@@ -106,23 +121,21 @@ if featureWeight:
 mean_subtraction = settings["mean_subtraction"] 
 std_normalization = settings["std_normalization"] 
 # Import previously trained model and weights for prediction.
-json_file = open(pathTrainedModels + case + "_model.json", 'r')
+json_file = open(pathCModel + case + "_model.json", 'r')
 pretrainedModel_json = json_file.read()
 json_file.close()
 model = tf.keras.models.model_from_json(pretrainedModel_json)    
 # Load weights into new model.
-model.load_weights(pathTrainedModels + case + "_weights.h5")  
+model.load_weights(pathCModel + case + "_weights.h5")  
 # Process data
 if mean_subtraction:
     trainFeatures_mean = np.load(
-        os.path.join(pathTrainedModels, 
-                     case + "_trainFeatures_mean.npy"),
+        os.path.join(pathCModel, case + "_trainFeatures_mean.npy"),
         allow_pickle=True)
     inputs -= trainFeatures_mean
 if std_normalization:
     trainFeatures_std = np.load(
-        os.path.join(pathTrainedModels, 
-                     case + "_trainFeatures_std.npy"), 
+        os.path.join(pathCModel, case + "_trainFeatures_std.npy"), 
         allow_pickle=True)
     inputs /= trainFeatures_std
 outputs = model.predict(np.reshape(inputs, 
