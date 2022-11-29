@@ -17,7 +17,9 @@
 - `trainLSTM.py`: script to train LSTM model.
 - `evaluateLSTM.py`: script to evaluate LSTM model.
 - `testLSTM.py`: script to test LSTM model on failure example.
+- `tuneHyperParametersLSTM.py`: script to tune hyperparameters of LSTM model.
 - `myModels.py`: script describing the model architecture.
+- `myModelsHyperParameters.py`: script describing the model architecture with support for hyperparameters tuning.
 - `myDataGenerator.py`: script describing the data generator.
 - `mySettings.py`: script with some tunable model settings.
 
@@ -32,4 +34,5 @@
 - Train model: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/trainLSTM.py`
 - Evaluate model: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/evaluateLSTM.py`
 - Test model: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/testLSTM.py`
+- Tune hyperparameters: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/tuneHyperParametersLSTM.py`
 - The files might be locked after training, to unlock run `sudo chown -R $USER: $HOME`
