@@ -2,3 +2,4 @@ numpy
 tensorflow
 matplotlib
 scipy
+keras-tuner
