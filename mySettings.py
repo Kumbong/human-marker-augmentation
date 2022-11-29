@@ -64,3 +64,42 @@ def get_lstm_settings(a):
              'bidirectional': False}}
         
     return settings[str(a)]
+
+# LSTM - Hyperparameters tuning
+def get_lstm_tuner_settings(a):
+
+    settings = {
+        "0":
+         {'augmenter_type': 'lowerExtremity',
+          "poseDetector": 'OpenPose',
+          # "idxDatasets": [idx for idx in range(0,10)],
+          # "scaleFactors": [0.9, 0.95, 1., 1.05, 1.1],
+          "idxDatasets": [idx for idx in range(0,1)],
+          "scaleFactors": [0.9],
+          # "nEpochs": 10,
+          "nEpochs": 2,
+          "batchSize": 64,
+          "idxFold": 0,
+          "mean_subtraction": True,
+          "std_normalization": True,
+          # "max_trials": 10,
+          "max_trials": 2,
+          "executions_per_trial": 1,
+          # "nEpochsBest": 15,
+          "nEpochsBest": 2,
+          "learning_r": {
+              "name": 'learning_r', "min": 1e-5, "max": 1e-4, 
+              "sampling": 'LOG', "default": 5e-5},
+          "units_h": {
+              "name": 'units_h', "min": 64, "max": 160, 
+              "step": 16, "default": 96},
+          "layer_h": {
+              "name": 'layerh', "min": 1, "max": 4, 
+              "step": 1, "default": 2},
+          "noise_magnitude": 0.018,
+          "noise_type": "per_timestep",
+          # 'nRotations': 8,
+          'nRotations': 1,
+          'bidirectional': False}}
+        
+    return settings[str(a)]
