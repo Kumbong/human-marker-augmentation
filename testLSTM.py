@@ -32,7 +32,7 @@ else:
     pathCModel = os.path.join(pathTrainedModels, "")
 
 # %% Failure example
-failure_case_name = 'bending'
+failure_case_name = 'calf_raise_side_fast'
 pathFailreDir = os.path.join(pathMain, 'test')
 pathFile = os.path.join(pathFailreDir, failure_case_name + ".trc")
 subject_height = 1.96
