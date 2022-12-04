@@ -12,7 +12,7 @@ from utilities import getAllMarkers, rotateArray, plotLossOverEpochs
 
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
-case = 1
+case = 2
 
 runTraining = True
 saveTrainedModel = True
