@@ -6,6 +6,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.initializers import glorot_normal
 from tensorflow.keras.regularizers import L2
 from tensorflow.keras.layers import Dense, Dropout, LSTM, TimeDistributed, Bidirectional
+from tensorflow.keras import Input, Model
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.metrics import MeanSquaredError, RootMeanSquaredError
 
@@ -69,38 +70,64 @@ def get_dense_model(nFirstUnits, nHiddenUnits, nHiddenLayers, input_dim,
 
 # %% LSTM model.
 def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
-                   loss_f, bidirectional=False, constraints=None):
+                   loss_f, bidirectional=False, constraints=None, IO_constraints=None):
     
     # For reproducibility.
     np.random.seed(1)
     tf.random.set_seed(1)
 
-    # Model.
-    model = Sequential()
-    # First layer.
+    # # Model.
+    # model = Sequential()
+    # # First layer.
+    # if bidirectional:
+    #     model.add(Bidirectional(LSTM(units=nHUnits, 
+    #                                  input_shape=(None, input_dim),
+    #                                  return_sequences=True)))
+    # else:
+    #     model.add(LSTM(units=nHUnits, input_shape = (None, input_dim),
+    #                    return_sequences=True))
+    # # Hidden layers.
+    # if nHiddenLayers > 0:
+    #     for i in range(nHiddenLayers):
+    #         if bidirectional:
+    #             model.add(Bidirectional(LSTM(units=nHUnits, 
+    #                                          return_sequences=True)))
+    #         else:
+    #             model.add(LSTM(units=nHUnits, return_sequences=True))
+    # # Last layer.    
+    # model.add(TimeDistributed(Dense(output_dim, activation='linear')))
+
+    inputs = Input(shape=(None, input_dim))
     if bidirectional:
-        model.add(Bidirectional(LSTM(units=nHUnits, 
+        x = Bidirectional(LSTM(units=nHUnits, 
                                      input_shape=(None, input_dim),
-                                     return_sequences=True)))
+                                     return_sequences=True))(inputs)
     else:
-        model.add(LSTM(units=nHUnits, input_shape = (None, input_dim),
-                       return_sequences=True))
+        x = LSTM(units=nHUnits, input_shape = (None, input_dim),
+                       return_sequences=True)(inputs)
     # Hidden layers.
     if nHiddenLayers > 0:
         for i in range(nHiddenLayers):
             if bidirectional:
-                model.add(Bidirectional(LSTM(units=nHUnits, 
-                                             return_sequences=True)))
+                x = Bidirectional(LSTM(units=nHUnits, 
+                                             return_sequences=True))(x)
             else:
-                model.add(LSTM(units=nHUnits, return_sequences=True))
+                x = LSTM(units=nHUnits, return_sequences=True)(x)
     # Last layer.    
-    model.add(TimeDistributed(Dense(output_dim, activation='linear')))
+    outputs = TimeDistributed(Dense(output_dim, activation='linear'))(x)
+
+    model = Model(inputs, outputs)
     
     # Optimizer.
     opt=Adam(learning_rate=learning_r)
 
     if loss_f == 'output_length_constr':
+        assert constraints != None
         loss_f = output_len_constr_loss(constraints)
+
+    if loss_f == 'input_output_length_constr':
+        assert IO_constraints != None
+        loss_f = input_output_len_constr_loss(IO_constraints, inputs)
 
     # Loss function.
     model.compile(
@@ -123,6 +150,21 @@ def weighted_mean_squared_error(weights):
         squared_difference = tf.square(y_true - y_pred)        
         weighted_squared_difference = weights * squared_difference  
         return tf.reduce_mean(weighted_squared_difference, axis=-1)
+    return loss
+
+def input_output_len_constr_loss(IO_constraints, inputs):
+    def loss(y_true, y_pred):
+        mse_loss = tf.reduce_mean(tf.square(y_true - y_pred), axis = [1, 2])
+
+        constrained_input_marker_coords = tf.gather(inputs, indices=IO_constraints[0], axis = -1)
+        constrained_output_marker_coords = tf.gather(y_pred, indices=IO_constraints[1], axis = -1)
+        assert constrained_input_marker_coords.shape == constrained_output_marker_coords.shape
+        constrained_distances = tf.reduce_mean(tf.square(constrained_output_marker_coords - constrained_input_marker_coords), axis=-1)
+        one_time_step_dist_diff_sum = tf.reduce_sum(tf.square(constrained_distances[:, 1:, :] - constrained_distances[:, :-1, :]), axis = -1)
+        total_constraint_violation = tf.reduce_sum(one_time_step_dist_diff_sum, axis = -1)
+
+        return mse_loss + total_constraint_violation
+
     return loss
 
 def output_len_constr_loss(constraints):
