@@ -17,6 +17,13 @@ case = 2
 runTraining = True
 saveTrainedModel = True
 
+gpu_devices = tf.config.experimental.list_physical_devices('GPU')
+for device in gpu_devices:
+    tf.config.experimental.set_memory_growth(device, True)
+
+from tensorflow.python.framework.ops import disable_eager_execution
+disable_eager_execution()
+
 # %% Paths.
 if platform.system() == 'Linux':
     # To use docker.
