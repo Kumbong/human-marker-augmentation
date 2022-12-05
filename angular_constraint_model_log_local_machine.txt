@@ -1,0 +1,62 @@
+(cs-230-project) C:\Users\Suguna Velury\Documents\Stanford\Courses\CS230\Project\cs230-project>python trainLSTM.py
+2022-12-04 00:22:51.470636: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-12-04 00:22:51.470915: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+Entered angular
+2022-12-04 00:22:54.010924: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-12-04 00:22:54.011113: W tensorflow/stream_executor/cuda/cuda_driver.cc:263] failed call to cuInit: UNKNOWN ERROR (303)
+2022-12-04 00:22:54.014621: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-RKK31M9
+2022-12-04 00:22:54.015036: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-RKK31M9
+2022-12-04 00:22:54.015607: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Epoch 1/50
+3300/3300 - 2043s - loss: 217.4264 - mean_squared_error: 0.0483 - root_mean_squared_error: 0.2198 - val_loss: 216.6087 - val_mean_squared_error: 0.0473 - val_root_mean_squared_error: 0.2174 - 2043s/epoch - 619ms/step
+Epoch 2/50
+3300/3300 - 1848s - loss: 216.5672 - mean_squared_error: 0.0412 - root_mean_squared_error: 0.2031 - val_loss: 216.5717 - val_mean_squared_error: 0.0348 - val_root_mean_squared_error: 0.1865 - 1848s/epoch - 560ms/step
+Epoch 3/50
+3300/3300 - 2539s - loss: 216.5510 - mean_squared_error: 0.0294 - root_mean_squared_error: 0.1715 - val_loss: 216.5499 - val_mean_squared_error: 0.0231 - val_root_mean_squared_error: 0.1519 - 2539s/epoch - 769ms/step
+Epoch 4/50
+3300/3300 - 1979s - loss: 216.5352 - mean_squared_error: 0.0212 - root_mean_squared_error: 0.1456 - val_loss: 216.5426 - val_mean_squared_error: 0.0165 - val_root_mean_squared_error: 0.1283 - 1979s/epoch - 600ms/step
+Epoch 5/50
+3300/3300 - 1970s - loss: 216.5282 - mean_squared_error: 0.0162 - root_mean_squared_error: 0.1272 - val_loss: 216.5329 - val_mean_squared_error: 0.0159 - val_root_mean_squared_error: 0.1263 - 1970s/epoch - 597ms/step
+Epoch 6/50
+3300/3300 - 2080s - loss: 216.5244 - mean_squared_error: 0.0138 - root_mean_squared_error: 0.1176 - val_loss: 216.5284 - val_mean_squared_error: 0.0118 - val_root_mean_squared_error: 0.1089 - 2080s/epoch - 630ms/step
+Epoch 7/50
+3300/3300 - 2045s - loss: 216.5215 - mean_squared_error: 0.0108 - root_mean_squared_error: 0.1040 - val_loss: 216.5245 - val_mean_squared_error: 0.0093 - val_root_mean_squared_error: 0.0963 - 2045s/epoch - 620ms/step
+Epoch 8/50
+3300/3300 - 2169s - loss: 216.5220 - mean_squared_error: 0.0110 - root_mean_squared_error: 0.1048 - val_loss: 216.5262 - val_mean_squared_error: 0.0111 - val_root_mean_squared_error: 0.1054 - 2169s/epoch - 657ms/step
+Epoch 9/50
+3300/3300 - 2109s - loss: 216.5213 - mean_squared_error: 0.0103 - root_mean_squared_error: 0.1013 - val_loss: 216.5245 - val_mean_squared_error: 0.0089 - val_root_mean_squared_error: 0.0943 - 2109s/epoch - 639ms/step
+Epoch 10/50
+3300/3300 - 2072s - loss: 216.5197 - mean_squared_error: 0.0086 - root_mean_squared_error: 0.0927 - val_loss: 216.5228 - val_mean_squared_error: 0.0093 - val_root_mean_squared_error: 0.0964 - 2072s/epoch - 628ms/step
+Epoch 11/50
+3300/3300 - 2163s - loss: 216.5192 - mean_squared_error: 0.0085 - root_mean_squared_error: 0.0921 - val_loss: 216.5213 - val_mean_squared_error: 0.0075 - val_root_mean_squared_error: 0.0868 - 2163s/epoch - 655ms/step
+Epoch 12/50
+3300/3300 - 2130s - loss: 216.5183 - mean_squared_error: 0.0069 - root_mean_squared_error: 0.0828 - val_loss: 216.5208 - val_mean_squared_error: 0.0059 - val_root_mean_squared_error: 0.0770 - 2130s/epoch - 645ms/step
+Epoch 13/50
+3300/3300 - 2200s - loss: 216.5211 - mean_squared_error: 0.0078 - root_mean_squared_error: 0.0884 - val_loss: 216.5200 - val_mean_squared_error: 0.0071 - val_root_mean_squared_error: 0.0844 - 2200s/epoch - 667ms/step
+Epoch 14/50
+3300/3300 - 1390s - loss: 216.5182 - mean_squared_error: 0.0065 - root_mean_squared_error: 0.0809 - val_loss: 216.5194 - val_mean_squared_error: 0.0061 - val_root_mean_squared_error: 0.0781 - 1390s/epoch - 421ms/step
+Epoch 15/50
+3300/3300 - 505s - loss: 216.5185 - mean_squared_error: 0.0066 - root_mean_squared_error: 0.0811 - val_loss: 216.5200 - val_mean_squared_error: 0.0065 - val_root_mean_squared_error: 0.0807 - 505s/epoch - 153ms/step
+Epoch 16/50
+3300/3300 - 467s - loss: 216.5190 - mean_squared_error: 0.0061 - root_mean_squared_error: 0.0780 - val_loss: 216.5194 - val_mean_squared_error: 0.0064 - val_root_mean_squared_error: 0.0798 - 467s/epoch - 142ms/step
+Epoch 17/50
+3300/3300 - 451s - loss: 216.5182 - mean_squared_error: 0.0060 - root_mean_squared_error: 0.0775 - val_loss: 216.5191 - val_mean_squared_error: 0.0055 - val_root_mean_squared_error: 0.0741 - 451s/epoch - 137ms/step
+Epoch 18/50
+3300/3300 - 459s - loss: 216.5176 - mean_squared_error: 0.0052 - root_mean_squared_error: 0.0722 - val_loss: 216.5180 - val_mean_squared_error: 0.0047 - val_root_mean_squared_error: 0.0687 - 459s/epoch - 139ms/step
+Epoch 19/50
+3300/3300 - 480s - loss: 216.5189 - mean_squared_error: 0.0055 - root_mean_squared_error: 0.0742 - val_loss: 216.5178 - val_mean_squared_error: 0.0049 - val_root_mean_squared_error: 0.0699 - 480s/epoch - 146ms/step
+Epoch 20/50
+3300/3300 - 480s - loss: 216.5180 - mean_squared_error: 0.0052 - root_mean_squared_error: 0.0721 - val_loss: 216.5179 - val_mean_squared_error: 0.0048 - val_root_mean_squared_error: 0.0696 - 480s/epoch - 145ms/step
+Epoch 21/50
+3300/3300 - 522s - loss: 216.5193 - mean_squared_error: 0.0051 - root_mean_squared_error: 0.0712 - val_loss: 216.5187 - val_mean_squared_error: 0.0054 - val_root_mean_squared_error: 0.0736 - 522s/epoch - 158ms/step
+Epoch 22/50
+3300/3300 - 574s - loss: 216.5175 - mean_squared_error: 0.0047 - root_mean_squared_error: 0.0684 - val_loss: 216.5170 - val_mean_squared_error: 0.0041 - val_root_mean_squared_error: 0.0640 - 574s/epoch - 174ms/step
+Epoch 23/50
+3300/3300 - 629s - loss: 216.5187 - mean_squared_error: 0.0043 - root_mean_squared_error: 0.0657 - val_loss: 216.5200 - val_mean_squared_error: 0.0046 - val_root_mean_squared_error: 0.0676 - 629s/epoch - 191ms/step
+Epoch 24/50
+3300/3300 - 638s - loss: 216.5191 - mean_squared_error: 0.0047 - root_mean_squared_error: 0.0682 - val_loss: 216.5182 - val_mean_squared_error: 0.0051 - val_root_mean_squared_error: 0.0716 - 638s/epoch - 193ms/step
+Epoch 25/50
+Restoring model weights from the end of the best epoch: 22.
+3300/3300 - 616s - loss: 216.5177 - mean_squared_error: 0.0044 - root_mean_squared_error: 0.0666 - val_loss: 216.5176 - val_mean_squared_error: 0.0045 - val_root_mean_squared_error: 0.0672 - 616s/epoch - 187ms/step
+Epoch 25: early stopping
