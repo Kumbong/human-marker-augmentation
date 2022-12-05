@@ -55,7 +55,7 @@ def get_lstm_settings(a):
              "nEpochs": 50,
              "batchSize": 64,
              "idxFold": 0,
-             "loss_f": "output_length_constr",
+             "loss_f": "output_angular_constr", # output_length_constr
              'learning_r': 5e-05,
              "mean_subtraction": True,
              "std_normalization": True,

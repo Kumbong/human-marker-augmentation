@@ -9,6 +9,8 @@ from mySettings import get_lstm_settings
 from myModels import get_lstm_model
 from myDataGenerator import lstmDataGenerator
 from utilities import getAllMarkers, rotateArray, plotLossOverEpochs
+from utilities import getMarkers_lowerExtremity_angularconstraints
+
 
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
@@ -16,6 +18,8 @@ case = 1
 
 runTraining = True
 saveTrainedModel = True
+
+constraint_type = 1
 
 # %% Paths.
 if platform.system() == 'Linux':
@@ -117,7 +121,12 @@ elif augmenter_type == 'lowerExtremity':
         from utilities import getOpenPoseMarkers_lowerExtremity, getMarkers_lowerExtremity_constraints, translateConstraints
         _, response_markers, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getOpenPoseMarkers_lowerExtremity())
-        constraints = translateConstraints(getMarkers_lowerExtremity_constraints(), response_markers)
+        if(constraint_type == 0):
+            constraints = translateConstraints(getMarkers_lowerExtremity_constraints(), response_markers)
+        elif(constraint_type == 1):
+            print("Entered angular")
+            constraints = getMarkers_lowerExtremity_angularconstraints()
+   
     elif poseDetector == 'mmpose':
         from utilities import getMMposeMarkers_lowerExtremity
         _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
