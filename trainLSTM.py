@@ -24,11 +24,11 @@ constraint_type = 1
 # %% Paths.
 if platform.system() == 'Linux':
     # To use docker.
-    pathMain = '/home/ubuntu/cs230-project/augmenter-cs230'
+    pathMain = os.getcwd()#'/home/ubuntu/cs230-project/augmenter-cs230'
 else:
     pathMain = os.getcwd()
 pathData = os.path.join(pathMain, "Data")
-pathData_all = os.path.join(pathData, "data_CS230")
+pathData_all = os.path.join(pathData, "data_CS230_small")
 pathTrainedModels = os.path.join(pathMain, "trained_models_LSTM")
 os.makedirs(pathTrainedModels, exist_ok=True)
 pathCModel = os.path.join(pathTrainedModels, "")

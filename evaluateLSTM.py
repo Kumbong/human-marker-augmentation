@@ -18,11 +18,11 @@ plotResults = True
 # %% Paths
 if platform.system() == 'Linux':
     # To use docker.
-    pathMain = '/augmenter-cs230'
+    pathMain = os.getcwd() #'/augmenter-cs230'
 else:
     pathMain = os.getcwd()    
 pathData = os.path.join(pathMain, "Data")
-pathData_all = os.path.join(pathData, "data_CS230")
+pathData_all = os.path.join(pathData, "data_CS230_small")
 pathTrainedModels = os.path.join(pathMain, "trained_models_LSTM")
 pathCModel = os.path.join(pathTrainedModels, "")
 

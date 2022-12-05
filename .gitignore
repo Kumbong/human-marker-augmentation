@@ -6,6 +6,12 @@ __pycache__/
 Data/*
 !Data/subjectSplit.npy
 
+# Envs
+envs
+
+# Key
+cs-230-project-aws-key.pem
+
 # Test
 # test/*
 # !test/failure_example.trc
