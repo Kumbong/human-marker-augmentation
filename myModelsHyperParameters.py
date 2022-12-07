@@ -46,16 +46,19 @@ class get_lstm_model(HyperModel):
         lambda_1 = hp.Float(self.lambda_1["name"], 
                         min_value=self.lambda_1["min"],
                         max_value=self.lambda_1["max"],
+                        sampling=self.lambda_1["sampling"],
                         default=self.lambda_1["default"])
 
         lambda_2 = hp.Float(self.lambda_2["name"], 
                 min_value=self.lambda_2["min"],
                 max_value=self.lambda_2["max"],
+                sampling=self.lambda_2["sampling"],
                 default=self.lambda_2["default"])
         
         lambda_3 = hp.Float(self.lambda_3["name"], 
                 min_value=self.lambda_3["min"],
                 max_value=self.lambda_3["max"],
+                sampling=self.lambda_3["sampling"],
                 default=self.lambda_3["default"])
 
         units_h = self.units_h

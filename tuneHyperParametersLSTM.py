@@ -12,10 +12,18 @@ from utilities import getAllMarkers, rotateArray, getMarkers_lowerExtremity_angu
 
 import keras_tuner
 from keras_tuner.tuners import RandomSearch
+import argparse
+
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--case', type=int, help="Setting case to execute")
+args = parser.parse_args()
+
+if args.case == None:
+    raise Exception("Need a case number")
 
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
-case = 0
+case = args.case
 
 runParameterTuning = True
 printTunerSummary = True
