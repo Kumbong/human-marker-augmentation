@@ -41,7 +41,6 @@ def get_lstm_settings(a):
              "batchSize": 64,
              "idxFold": 0,
              'learning_r': 5e-05,
-             "lambda_1": 1,
              "mean_subtraction": True,
              "std_normalization": True,
              "noise_magnitude": 0.018,
@@ -58,9 +57,11 @@ def get_lstm_settings(a):
              "nEpochs": 50,
              "batchSize": 64,
              "idxFold": 0,
-             "loss_f": "output_length_constr",
+             "loss_f":  "output_constr",
              'learning_r': 5e-05,
              "lambda_1": 1,
+             "lambda_2": 1,
+             "lambda_3": 1,
              "mean_subtraction": True,
              "std_normalization": True,
              "noise_magnitude": 0.018,
@@ -91,9 +92,15 @@ def get_lstm_tuner_settings(a):
          "nEpochsBest": 15,
          "units_h": 96,
          "layer_h": 2,
-         "loss_f": "output_length_constr",
+         "loss_f": "output_constr",
          "lambda_1": {
              "name": 'lambda_1', "min": .01, "max": 10,
+             "sampling": "LOG", "default": 1},
+         "lambda_2": {
+             "name": 'lambda_2', "min": .01, "max": 10,
+             "sampling": "LOG", "default": 1},
+         "lambda_3": {
+             "name": 'lambda_3', "min": .01, "max": 10,
              "sampling": "LOG", "default": 1},
          "learning_r": {
              "name": 'learning_r', "min": 1e-5, "max": 1e-4,

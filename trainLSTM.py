@@ -9,6 +9,8 @@ from mySettings import get_lstm_settings
 from myModels import get_lstm_model
 from myDataGenerator import lstmDataGenerator
 from utilities import getAllMarkers, rotateArray, plotLossOverEpochs
+from utilities import getMarkers_lowerExtremity_angularconstraints
+
 
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
@@ -39,6 +41,8 @@ nHUnits = settings["nHUnits"]
 nHLayers = settings["nHLayers"]
 nEpochs = settings["nEpochs"]
 lambda_1 = settings["lambda_1"]
+lambda_2 = settings["lambda_2"]
+lambda_3 = settings["lambda_3"]
 batchSize = settings["batchSize"]
 idxFold = settings["idxFold"] 
 mean_subtraction = settings["mean_subtraction"]
@@ -101,7 +105,8 @@ else:
 # %% Helper indices (no need to change that).
 # Get indices features/responses based on augmenter_type and poseDetector.
 feature_markers_all, response_markers_all = getAllMarkers()
-constraints = None
+length_constraints = None
+angular_constraints= None
 if augmenter_type == 'fullBody':
     if poseDetector == 'OpenPose':
         from utilities import getOpenPoseMarkers_fullBody
@@ -118,7 +123,9 @@ elif augmenter_type == 'lowerExtremity':
         from utilities import getOpenPoseMarkers_lowerExtremity, getMarkers_lowerExtremity_constraints, translateConstraints
         _, response_markers, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getOpenPoseMarkers_lowerExtremity())
-        constraints = translateConstraints(getMarkers_lowerExtremity_constraints(), response_markers)
+        length_constraints = translateConstraints(getMarkers_lowerExtremity_constraints(), response_markers)
+        angular_constraints = getMarkers_lowerExtremity_angularconstraints()
+   
     elif poseDetector == 'mmpose':
         from utilities import getMMposeMarkers_lowerExtremity
         _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
@@ -264,7 +271,7 @@ val_generator = lstmDataGenerator(partition['val'], pathData_all, **params)
 # %% Initialize model.   
 model = get_lstm_model(input_dim=nFeature_markers+nAddFeatures, output_dim=nResponse_markers,
                        nHiddenLayers=nHLayers, nHUnits=nHUnits, learning_r=learning_r, loss_f=loss_f,
-                       bidirectional=bidirectional, constraints=constraints)
+                       batch_size = batchSize,desired_nFrames=desired_nFrames,bidirectional=bidirectional, length_constraints=length_constraints, angular_constraints=angular_constraints, lambda_1 = lambda_1, lambda_2 = lambda_2, lambda_3 = lambda_3)
 
 # %% Train model.
 if runTraining:

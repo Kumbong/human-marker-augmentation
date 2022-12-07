@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.spatial.transform import Rotation as R
 from itertools import combinations
 import dataman
+import math
 
 # %% Metrics.
 def getMetrics(features, responses, model):
@@ -424,3 +425,69 @@ def TRC2numpy(pathFile, markers):
     data_out = np.concatenate((this_dat, data), axis=1)
     
     return data_out
+
+def getMarkers_lowerExtremity_angularconstraints():
+
+    #Define markers corresponding to segments 
+    tibia_r = ["r_sh1_study", "r_sh2_study", "r_sh3_study"]
+    femur_r = ["r_thigh1_study", "r_thigh2_study", "r_thigh3_study"]
+    calcaneus_r = ["r_toe_study", "r_5meta_study", "r_calc_study"] 
+
+    tibia_l = ["L_sh1_study", "L_sh2_study", "L_sh3_study"]
+    femur_l = ["L_thigh1_study", "L_thigh2_study", "L_thigh3_study"]
+    calcaneus_l = ["L_toe_study", "L_5meta_study", "L_calc_study"] 
+
+    torso = ["r_shoulder_study", "L_shoulder_study", "C7_study"]
+    pelvis_r = ["r.ASIS_study", "r.PSIS_study"]
+    pelvis_l = ["L.ASIS_study", "L.PSIS_study"]
+
+    reference_tibia_femur_r = ["r_knee_study", "r_mknee_study"]
+    reference_calceneous_tibia_r = ["r_ankle_study", "r_mankle_study"]
+    reference_femur_pelvis_r = ["RHJC_study"]
+    reference_tibia_femur_l = ["L_knee_study", "L_mknee_study"]
+    reference_calceneous_tibia_l = ["L_ankle_study", "L_mankle_study"]
+    reference_femur_pelvis_l = ["LHJC_study"]
+    reference_pelvis_torso = []
+
+    angular_constraints = [[get_centroid(tibia_r), get_centroid(femur_r), get_centroid(reference_tibia_femur_r),get_angle_range("tibia","femur")],
+                           [get_centroid(tibia_l), get_centroid(femur_l), get_centroid(reference_tibia_femur_l),get_angle_range("tibia","femur")],
+                           [get_centroid(calcaneus_r), get_centroid(tibia_r), get_centroid(reference_calceneous_tibia_r), get_angle_range("calceneous","tibia")],
+                           [get_centroid(calcaneus_l), get_centroid(tibia_l), get_centroid(reference_calceneous_tibia_l), get_angle_range("calceneous","tibia")],
+                           [get_centroid(femur_r), get_centroid(pelvis_r), get_centroid(reference_femur_pelvis_r), get_angle_range("femur","pelvis")],
+                           [get_centroid(femur_l), get_centroid(pelvis_l), get_centroid(reference_femur_pelvis_l), get_angle_range("femur","pelvis")]]
+    
+    return angular_constraints
+
+def get_centroid(markers):
+    response_markers = ["C7_study", "r_shoulder_study", "L_shoulder_study",
+                        "r.ASIS_study", "L.ASIS_study", "r.PSIS_study", 
+                        "L.PSIS_study", "r_knee_study", "L_knee_study",
+                        "r_mknee_study", "L_mknee_study", "r_ankle_study", 
+                        "L_ankle_study", "r_mankle_study", "L_mankle_study",
+                        "r_calc_study", "L_calc_study", "r_toe_study", 
+                        "L_toe_study", "r_5meta_study", "L_5meta_study",
+                        "r_thigh1_study", "r_thigh2_study", "r_thigh3_study",
+                        "L_thigh1_study", "L_thigh2_study", "L_thigh3_study", 
+                        "r_sh1_study", "r_sh2_study", "r_sh3_study", 
+                        "L_sh1_study", "L_sh2_study", "L_sh3_study",
+                        "RHJC_study", "LHJC_study"]
+    
+    markers_indices = list(map(lambda x : [response_markers.index(x)*3, response_markers.index(x)*3 +1, response_markers.index(x)*3 + 2], markers))
+    #Padding
+    extra_dimension_index = (len(response_markers)*3)
+    while(len(markers_indices)<3):
+        markers_indices.append([extra_dimension_index,extra_dimension_index,extra_dimension_index])
+    return markers_indices
+    
+    
+def get_angle_range(segment1, segment2):
+    if(segment1 == "tibia" and segment2 == "femur"):
+        return [math.radians(0),math.radians(155)]
+    elif(segment1 == "calceneous" and segment2 == "tibia"):
+        return [math.radians(-65),math.radians(65)]
+    elif (segment1 == "femur" and segment2 == "pelvis"):
+        return [math.radians(-45),math.radians(135)]
+    else:
+        return [0,0]
+
+
