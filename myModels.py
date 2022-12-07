@@ -103,7 +103,6 @@ def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
 
     loss_f = output_constrained_loss(length_constraints, angular_constraints, batch_size, desired_nFrames, lambda_1, lambda_2, lambda_3)
 
-
     # Loss function.
     model.compile(
             optimizer=opt,
