@@ -97,11 +97,11 @@ def get_lstm_tuner_settings(a):
              "name": 'lambda_1', "min": .01, "max": 10,
              "sampling": "LOG", "default": 1},
          "lambda_2": {
-             "name": 'lambda_2', "min": 0.0, "max": 0.0,
-             "sampling": "LOG", "default": 0.0},
+             "name": 'lambda_2', "min": 1e-8, "max": 1e-8,
+             "sampling": "LOG", "default": 1e-8},
          "lambda_3": {
-             "name": 'lambda_3', "min": 0.0, "max": 0.0,
-             "sampling": "LOG", "default": 0.0},
+             "name": 'lambda_3', "min": 1e-8, "max": 1e-8,
+             "sampling": "LOG", "default": 1e-8},
          "learning_r": {
              "name": 'learning_r', "min": 1e-5, "max": 1e-4,
              "sampling": 'LOG', "default": 5e-5},
@@ -127,8 +127,8 @@ def get_lstm_tuner_settings(a):
          "layer_h": 2,
          "loss_f": "output_constr",
          "lambda_1": {
-             "name": 'lambda_1', "min": 0.0, "max": 0.0,
-             "sampling": "LOG", "default": 0.0},
+             "name": 'lambda_1', "min": 1e-8, "max": 1e-8,
+             "sampling": "LOG", "default": 1e-8},
          "lambda_2": {
              "name": 'lambda_2', "min": 0.01, "max": 10.0,
              "sampling": "LOG", "default": 1.0},
