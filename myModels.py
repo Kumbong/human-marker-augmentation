@@ -198,8 +198,8 @@ def output_angular_constr_loss(constraints,batchSize,desired_nFrames, lambda_2, 
         max_range_loss = tf.keras.activations.relu(diff_max_range)
         
         #reduce dimensions and add to loss term
-        min_angle_loss =tf.reduce_sum(tf.reduce_sum(tf.reduce_sum(tf.reduce_sum(min_range_loss,axis=-1),axis=-1),axis=-1),axis=-1)
-        max_angle_loss =tf.reduce_sum(tf.reduce_sum(tf.reduce_sum(tf.reduce_sum(max_range_loss,axis=-1),axis=-1),axis=-1),axis=-1)
+        min_angle_loss =tf.reduce_mean(tf.reduce_mean(tf.reduce_sum(tf.reduce_sum(min_range_loss,axis=-1),axis=-1),axis=-1),axis=-1)
+        max_angle_loss =tf.reduce_mean(tf.reduce_mean(tf.reduce_sum(tf.reduce_sum(max_range_loss,axis=-1),axis=-1),axis=-1),axis=-1)
 
         return lambda_2 * min_angle_loss + lambda_3 * max_angle_loss
 
