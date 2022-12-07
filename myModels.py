@@ -69,7 +69,7 @@ def get_dense_model(nFirstUnits, nHiddenUnits, nHiddenLayers, input_dim,
 
 # %% LSTM model.
 def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
-                   loss_f, bidirectional=False, constraints=None):
+                   loss_f, bidirectional=False, constraints=None, lambda_1 = 1):
     
     # For reproducibility.
     np.random.seed(1)
@@ -100,7 +100,7 @@ def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
     opt=Adam(learning_rate=learning_r)
 
     if loss_f == 'output_length_constr':
-        loss_f = output_len_constr_loss(constraints)
+        loss_f = output_len_constr_loss(constraints, lambda_1)
 
     # Loss function.
     model.compile(
@@ -125,7 +125,7 @@ def weighted_mean_squared_error(weights):
         return tf.reduce_mean(weighted_squared_difference, axis=-1)
     return loss
 
-def output_len_constr_loss(constraints):
+def output_len_constr_loss(constraints, lambda_1):
     #reduce list of list of tuples to list of tuples (should move to constraint calc function)
     reduced_constraints = list(itertools.chain.from_iterable(constraints))
     def loss(y_true, y_pred):
@@ -136,6 +136,6 @@ def output_len_constr_loss(constraints):
         one_time_step_dist_diff_mean = tf.reduce_sum(tf.square(constrained_pairwise_markers_dist[:, 1:, :] - constrained_pairwise_markers_dist[:, :-1, :]), axis = -1)
         total_constraint_violation = tf.reduce_sum(one_time_step_dist_diff_mean, axis = -1)
 
-        return mse_loss + total_constraint_violation
+        return mse_loss + lambda_1 * total_constraint_violation
 
     return loss
