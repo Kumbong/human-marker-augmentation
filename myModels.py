@@ -71,7 +71,7 @@ def get_dense_model(nFirstUnits, nHiddenUnits, nHiddenLayers, input_dim,
 
 # %% LSTM model.
 def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
-                   loss_f, bidirectional=False, constraints=None):
+                   loss_f, batchSize,desired_nFrames, bidirectional=False, constraints=None, angular_constraints=None):
     
     # For reproducibility.
     np.random.seed(1)
@@ -105,7 +105,7 @@ def get_lstm_model(input_dim, output_dim, nHiddenLayers, nHUnits, learning_r,
         loss_f = output_len_constr_loss(constraints)
 
     elif loss_f == 'output_angular_constr':
-        loss_f = output_angular_constr_loss(constraints)
+        loss_f = output_angular_constr_loss(angular_constraints,batchSize,desired_nFrames)
 
     # Loss function.
     model.compile(
@@ -145,14 +145,14 @@ def output_len_constr_loss(constraints):
 
     return loss
 
-def output_angular_constr_loss(constraints):
+def output_angular_constr_loss(constraints,batchSize,desired_nFrames):
 
     def loss(y_true, y_pred):
         mse_loss = tf.reduce_mean(tf.square(y_true - y_pred), axis = [1, 2])
 
         #add extra dimension to y_pred
         #print(y_pred.shape)
-        padding = np.empty((64,int(0.5*60),1))
+        padding = np.empty((batchSize,desired_nFrames,1)) 
         padding[:] = np.nan
         padding = tf.convert_to_tensor(padding,dtype=tf.float32)
         y_pred_pad = tf.concat([y_pred,padding],axis=-1)

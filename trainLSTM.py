@@ -19,8 +19,6 @@ case = 1
 runTraining = True
 saveTrainedModel = True
 
-constraint_type = 1
-
 # %% Paths.
 if platform.system() == 'Linux':
     # To use docker.
@@ -121,11 +119,8 @@ elif augmenter_type == 'lowerExtremity':
         from utilities import getOpenPoseMarkers_lowerExtremity, getMarkers_lowerExtremity_constraints, translateConstraints
         _, response_markers, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getOpenPoseMarkers_lowerExtremity())
-        if(constraint_type == 0):
-            constraints = translateConstraints(getMarkers_lowerExtremity_constraints(), response_markers)
-        elif(constraint_type == 1):
-            print("Entered angular")
-            constraints = getMarkers_lowerExtremity_angularconstraints()
+        constraints = translateConstraints(getMarkers_lowerExtremity_constraints(), response_markers)
+        angular_constraints = getMarkers_lowerExtremity_angularconstraints()
    
     elif poseDetector == 'mmpose':
         from utilities import getMMposeMarkers_lowerExtremity
@@ -272,7 +267,7 @@ val_generator = lstmDataGenerator(partition['val'], pathData_all, **params)
 # %% Initialize model.   
 model = get_lstm_model(input_dim=nFeature_markers+nAddFeatures, output_dim=nResponse_markers,
                        nHiddenLayers=nHLayers, nHUnits=nHUnits, learning_r=learning_r, loss_f=loss_f,
-                       bidirectional=bidirectional, constraints=constraints)
+                       batchSize = batchSize,desired_nFrames=desired_nFrames,bidirectional=bidirectional, constraints=constraints, angular_constraints=angular_constraints)
 
 # %% Train model.
 if runTraining:
