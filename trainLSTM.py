@@ -10,11 +10,17 @@ from myModels import get_lstm_model
 from myDataGenerator import lstmDataGenerator
 from utilities import getAllMarkers, rotateArray, plotLossOverEpochs
 from utilities import getMarkers_lowerExtremity_angularconstraints
+import argparse
 
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--case', type=str, help="Setting case to execute")
+args = parser.parse_args()
 
+if args.case == None:
+    raise Exception("Need a case number")
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
-case = 'debug'
+case = args.case
 
 runTraining = True
 saveTrainedModel = True

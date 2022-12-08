@@ -159,8 +159,8 @@ def input_output_len_constr_loss(IO_constraints, inputs, lambda_4):
         constrained_input_marker_coords = tf.gather(inputs, indices=IO_constraints[0], axis = -1)
         constrained_output_marker_coords = tf.gather(y_pred, indices=IO_constraints[1], axis = -1)
         constrained_distances = tf.reduce_mean(tf.square(constrained_output_marker_coords - constrained_input_marker_coords), axis=-1)
-        one_time_step_dist_diff_sum = tf.reduce_sum(tf.square(constrained_distances[:, 1:, :] - constrained_distances[:, :-1, :]), axis = -1)
-        total_constraint_violation = tf.reduce_sum(one_time_step_dist_diff_sum, axis = -1)
+        one_time_step_dist_diff_sum = tf.reduce_mean(tf.square(constrained_distances[:, 1:, :] - constrained_distances[:, :-1, :]), axis = -1)
+        total_constraint_violation = tf.reduce_mean(one_time_step_dist_diff_sum, axis = -1)
 
         return mse_loss + lambda_4 * total_constraint_violation
 
