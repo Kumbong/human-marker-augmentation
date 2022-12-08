@@ -153,7 +153,7 @@ def get_lstm_tuner_settings(a):
          "idxFold": 0,
          "mean_subtraction": True,
          "std_normalization": True,
-         "max_trials": 10,
+         "max_trials": 5,
          "executions_per_trial": 1,
          "nEpochsBest": 15,
          "units_h": 96,
