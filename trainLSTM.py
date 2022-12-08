@@ -19,6 +19,8 @@ case = 'debug'
 runTraining = True
 saveTrainedModel = True
 
+tf.compat.v1.experimental.output_all_intermediates(True)
+
 gpu_devices = tf.config.experimental.list_physical_devices('GPU')
 for device in gpu_devices:
     tf.config.experimental.set_memory_growth(device, True)
@@ -288,7 +290,7 @@ if runTraining:
         monitor='val_loss', patience=3, verbose=1, mode="auto",
         restore_best_weights=True)
     history = model.fit(train_generator, validation_data=val_generator, 
-                        epochs=nEpochs, batch_size=batchSize, verbose=2,
+                        epochs=nEpochs, verbose=2,
                         use_multiprocessing=use_multiprocessing, workers=nWorkers,
                         callbacks=[callback])
     #print(history.history)
