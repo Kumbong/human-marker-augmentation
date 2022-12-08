@@ -92,7 +92,7 @@ def get_lstm_tuner_settings(a):
          "nEpochsBest": 15,
          "units_h": 96,
          "layer_h": 2,
-         "loss_f": "output_constr",
+         "loss_f": "output_len_constr",
          "lambda_1": {
              "name": 'lambda_1', "min": .01, "max": 10,
              "sampling": "LOG", "default": 1},
@@ -125,7 +125,7 @@ def get_lstm_tuner_settings(a):
          "nEpochsBest": 15,
          "units_h": 96,
          "layer_h": 2,
-         "loss_f": "output_constr",
+         "loss_f": "output_angular_constr",
          "lambda_1": {
              "name": 'lambda_1', "min": 1e-8, "max": 1e-8,
              "sampling": "LOG", "default": 1e-8},
@@ -158,7 +158,7 @@ def get_lstm_tuner_settings(a):
          "nEpochsBest": 15,
          "units_h": 96,
          "layer_h": 2,
-         "loss_f": "output_constr",
+         "loss_f": "output_len_ang_constr",
          "lambda_1": {
              "name": 'lambda_1', "min": 0.01, "max": 10.0,
              "sampling": "LOG", "default": 1.0},
