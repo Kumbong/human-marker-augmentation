@@ -1,0 +1,253 @@
+Search space summary
+Default search space size: 4
+learning_r (Float)
+{'default': 5e-05, 'conditions': [], 'min_value': 1e-05, 'max_value': 0.0001, 'step': None, 'sampling': 'log'}
+lambda_1 (Float)
+{'default': 1e-08, 'conditions': [], 'min_value': 1e-08, 'max_value': 1e-08, 'step': None, 'sampling': 'log'}
+lambda_2 (Float)
+{'default': 1.0, 'conditions': [], 'min_value': 0.01, 'max_value': 10.0, 'step': None, 'sampling': 'log'}
+lambda_3 (Float)
+{'default': 1.0, 'conditions': [], 'min_value': 0.01, 'max_value': 10.0, 'step': None, 'sampling': 'log'}
+
+Search: Running Trial #1
+
+Value             |Best Value So Far |Hyperparameter
+1.2389e-05        |?                 |learning_r
+1e-08             |?                 |lambda_1
+5.4788            |?                 |lambda_2
+2.0037            |?                 |lambda_3
+
+Epoch 1/10
+14853/14853 - 261s - loss: 0.3709 - mean_squared_error: 0.0383 - root_mean_squared_error: 0.1956 - val_loss: 0.0319 - val_mean_squared_error: 0.0306 - val_root_mean_squared_error: 0.1749 - 261s/epoch - 18ms/step
+Epoch 2/10
+14853/14853 - 257s - loss: 0.0251 - mean_squared_error: 0.0237 - root_mean_squared_error: 0.1539 - val_loss: 0.0189 - val_mean_squared_error: 0.0180 - val_root_mean_squared_error: 0.1341 - 257s/epoch - 17ms/step
+Epoch 3/10
+14853/14853 - 258s - loss: 0.0156 - mean_squared_error: 0.0150 - root_mean_squared_error: 0.1223 - val_loss: 0.0129 - val_mean_squared_error: 0.0125 - val_root_mean_squared_error: 0.1119 - 258s/epoch - 17ms/step
+Epoch 4/10
+14853/14853 - 257s - loss: 0.0114 - mean_squared_error: 0.0111 - root_mean_squared_error: 0.1052 - val_loss: 0.0092 - val_mean_squared_error: 0.0092 - val_root_mean_squared_error: 0.0959 - 257s/epoch - 17ms/step
+Epoch 5/10
+14853/14853 - 262s - loss: 0.0078 - mean_squared_error: 0.0077 - root_mean_squared_error: 0.0878 - val_loss: 0.0065 - val_mean_squared_error: 0.0065 - val_root_mean_squared_error: 0.0803 - 262s/epoch - 18ms/step
+Epoch 6/10
+14853/14853 - 283s - loss: 0.0052 - mean_squared_error: 0.0052 - root_mean_squared_error: 0.0723 - val_loss: 0.0043 - val_mean_squared_error: 0.0043 - val_root_mean_squared_error: 0.0653 - 283s/epoch - 19ms/step
+Epoch 7/10
+14853/14853 - 321s - loss: 0.0037 - mean_squared_error: 0.0037 - root_mean_squared_error: 0.0607 - val_loss: 0.0032 - val_mean_squared_error: 0.0032 - val_root_mean_squared_error: 0.0565 - 321s/epoch - 22ms/step
+Epoch 8/10
+14853/14853 - 326s - loss: 0.0028 - mean_squared_error: 0.0028 - root_mean_squared_error: 0.0531 - val_loss: 0.0025 - val_mean_squared_error: 0.0025 - val_root_mean_squared_error: 0.0503 - 326s/epoch - 22ms/step
+Epoch 9/10
+14853/14853 - 321s - loss: 0.0023 - mean_squared_error: 0.0023 - root_mean_squared_error: 0.0477 - val_loss: 0.0020 - val_mean_squared_error: 0.0020 - val_root_mean_squared_error: 0.0449 - 321s/epoch - 22ms/step
+Epoch 10/10
+14853/14853 - 319s - loss: 0.0019 - mean_squared_error: 0.0019 - root_mean_squared_error: 0.0431 - val_loss: 0.0017 - val_mean_squared_error: 0.0017 - val_root_mean_squared_error: 0.0411 - 319s/epoch - 21ms/step
+[2K[2KTrial 1 Complete [00h 47m 47s]
+val_root_mean_squared_error: 0.04112928733229637
+
+Best val_root_mean_squared_error So Far: 0.04112928733229637
+Total elapsed time: 00h 47m 47s
+
+Search: Running Trial #2
+
+Value             |Best Value So Far |Hyperparameter
+6.0314e-05        |1.2389e-05        |learning_r
+1e-08             |1e-08             |lambda_1
+1.0713            |5.4788            |lambda_2
+0.016098          |2.0037            |lambda_3
+
+Epoch 1/10
+14853/14853 - 325s - loss: 0.0374 - mean_squared_error: 0.0189 - root_mean_squared_error: 0.1375 - val_loss: 0.0055 - val_mean_squared_error: 0.0055 - val_root_mean_squared_error: 0.0742 - 325s/epoch - 22ms/step
+Epoch 2/10
+14853/14853 - 325s - loss: 0.0035 - mean_squared_error: 0.0035 - root_mean_squared_error: 0.0587 - val_loss: 0.0019 - val_mean_squared_error: 0.0019 - val_root_mean_squared_error: 0.0439 - 325s/epoch - 22ms/step
+Epoch 3/10
+14853/14853 - 324s - loss: 0.0018 - mean_squared_error: 0.0017 - root_mean_squared_error: 0.0416 - val_loss: 0.0016 - val_mean_squared_error: 0.0016 - val_root_mean_squared_error: 0.0399 - 324s/epoch - 22ms/step
+Epoch 4/10
+14853/14853 - 324s - loss: 0.0011 - mean_squared_error: 9.9712e-04 - root_mean_squared_error: 0.0316 - val_loss: 7.4721e-04 - val_mean_squared_error: 7.4721e-04 - val_root_mean_squared_error: 0.0273 - 324s/epoch - 22ms/step
+Epoch 5/10
+14853/14853 - 324s - loss: 4.4317e-04 - mean_squared_error: 4.3966e-04 - root_mean_squared_error: 0.0210 - val_loss: 2.3842e-04 - val_mean_squared_error: 2.3842e-04 - val_root_mean_squared_error: 0.0154 - 324s/epoch - 22ms/step
+Epoch 6/10
+14853/14853 - 324s - loss: 2.9832e-04 - mean_squared_error: 2.8639e-04 - root_mean_squared_error: 0.0169 - val_loss: 3.0400e-04 - val_mean_squared_error: 3.0393e-04 - val_root_mean_squared_error: 0.0174 - 324s/epoch - 22ms/step
+Epoch 7/10
+14853/14853 - 322s - loss: 2.2832e-04 - mean_squared_error: 2.1231e-04 - root_mean_squared_error: 0.0146 - val_loss: 2.2839e-04 - val_mean_squared_error: 2.2835e-04 - val_root_mean_squared_error: 0.0151 - 322s/epoch - 22ms/step
+Epoch 8/10
+14853/14853 - 325s - loss: 2.0098e-04 - mean_squared_error: 1.9258e-04 - root_mean_squared_error: 0.0139 - val_loss: 1.5057e-04 - val_mean_squared_error: 1.5008e-04 - val_root_mean_squared_error: 0.0123 - 325s/epoch - 22ms/step
+Epoch 9/10
+14853/14853 - 324s - loss: 1.3750e-04 - mean_squared_error: 1.3379e-04 - root_mean_squared_error: 0.0116 - val_loss: 1.0110e-04 - val_mean_squared_error: 1.0110e-04 - val_root_mean_squared_error: 0.0101 - 324s/epoch - 22ms/step
+Epoch 10/10
+14853/14853 - 295s - loss: 1.2954e-04 - mean_squared_error: 1.2748e-04 - root_mean_squared_error: 0.0113 - val_loss: 8.8802e-05 - val_mean_squared_error: 8.8792e-05 - val_root_mean_squared_error: 0.0094 - 295s/epoch - 20ms/step
+[2K[2KTrial 2 Complete [00h 54m 34s]
+val_root_mean_squared_error: 0.009422967210412025
+
+Best val_root_mean_squared_error So Far: 0.009422967210412025
+Total elapsed time: 01h 42m 21s
+
+Search: Running Trial #3
+
+Value             |Best Value So Far |Hyperparameter
+1.0827e-05        |6.0314e-05        |learning_r
+1e-08             |1e-08             |lambda_1
+2.0425            |1.0713            |lambda_2
+0.023593          |0.016098          |lambda_3
+
+Epoch 1/10
+14853/14853 - 264s - loss: 0.1775 - mean_squared_error: 0.0332 - root_mean_squared_error: 0.1823 - val_loss: 0.0229 - val_mean_squared_error: 0.0212 - val_root_mean_squared_error: 0.1458 - 264s/epoch - 18ms/step
+Epoch 2/10
+14853/14853 - 261s - loss: 0.0155 - mean_squared_error: 0.0151 - root_mean_squared_error: 0.1227 - val_loss: 0.0120 - val_mean_squared_error: 0.0112 - val_root_mean_squared_error: 0.1057 - 261s/epoch - 18ms/step
+Epoch 3/10
+14853/14853 - 263s - loss: 0.0094 - mean_squared_error: 0.0091 - root_mean_squared_error: 0.0956 - val_loss: 0.0076 - val_mean_squared_error: 0.0075 - val_root_mean_squared_error: 0.0863 - 263s/epoch - 18ms/step
+Epoch 4/10
+14853/14853 - 261s - loss: 0.0065 - mean_squared_error: 0.0063 - root_mean_squared_error: 0.0795 - val_loss: 0.0055 - val_mean_squared_error: 0.0054 - val_root_mean_squared_error: 0.0737 - 261s/epoch - 18ms/step
+Epoch 5/10
+14853/14853 - 262s - loss: 0.0049 - mean_squared_error: 0.0048 - root_mean_squared_error: 0.0692 - val_loss: 0.0044 - val_mean_squared_error: 0.0044 - val_root_mean_squared_error: 0.0661 - 262s/epoch - 18ms/step
+Epoch 6/10
+14853/14853 - 262s - loss: 0.0040 - mean_squared_error: 0.0039 - root_mean_squared_error: 0.0627 - val_loss: 0.0036 - val_mean_squared_error: 0.0036 - val_root_mean_squared_error: 0.0599 - 262s/epoch - 18ms/step
+Epoch 7/10
+14853/14853 - 262s - loss: 0.0033 - mean_squared_error: 0.0033 - root_mean_squared_error: 0.0571 - val_loss: 0.0030 - val_mean_squared_error: 0.0030 - val_root_mean_squared_error: 0.0546 - 262s/epoch - 18ms/step
+Epoch 8/10
+14853/14853 - 263s - loss: 0.0028 - mean_squared_error: 0.0027 - root_mean_squared_error: 0.0519 - val_loss: 0.0026 - val_mean_squared_error: 0.0025 - val_root_mean_squared_error: 0.0504 - 263s/epoch - 18ms/step
+Epoch 9/10
+14853/14853 - 263s - loss: 0.0024 - mean_squared_error: 0.0023 - root_mean_squared_error: 0.0482 - val_loss: 0.0022 - val_mean_squared_error: 0.0022 - val_root_mean_squared_error: 0.0467 - 263s/epoch - 18ms/step
+Epoch 10/10
+14853/14853 - 262s - loss: 0.0020 - mean_squared_error: 0.0020 - root_mean_squared_error: 0.0445 - val_loss: 0.0018 - val_mean_squared_error: 0.0018 - val_root_mean_squared_error: 0.0427 - 262s/epoch - 18ms/step
+[2K[2KTrial 3 Complete [00h 43m 47s]
+val_root_mean_squared_error: 0.04265822097659111
+
+Best val_root_mean_squared_error So Far: 0.009422967210412025
+Total elapsed time: 02h 26m 08s
+
+Search: Running Trial #4
+
+Value             |Best Value So Far |Hyperparameter
+2.045e-05         |6.0314e-05        |learning_r
+1e-08             |1e-08             |lambda_1
+0.012651          |1.0713            |lambda_2
+0.098818          |0.016098          |lambda_3
+
+Epoch 1/10
+14853/14853 - 264s - loss: 0.0090 - mean_squared_error: 0.0085 - root_mean_squared_error: 0.0920 - val_loss: 0.0022 - val_mean_squared_error: 0.0022 - val_root_mean_squared_error: 0.0466 - 264s/epoch - 18ms/step
+Epoch 2/10
+14853/14853 - 263s - loss: 0.0013 - mean_squared_error: 0.0013 - root_mean_squared_error: 0.0361 - val_loss: 8.1175e-04 - val_mean_squared_error: 8.1171e-04 - val_root_mean_squared_error: 0.0285 - 263s/epoch - 18ms/step
+Epoch 3/10
+14853/14853 - 262s - loss: 6.3775e-04 - mean_squared_error: 6.3407e-04 - root_mean_squared_error: 0.0252 - val_loss: 5.0757e-04 - val_mean_squared_error: 5.0245e-04 - val_root_mean_squared_error: 0.0224 - 262s/epoch - 18ms/step
+Epoch 4/10
+14853/14853 - 261s - loss: 3.9623e-04 - mean_squared_error: 3.9488e-04 - root_mean_squared_error: 0.0199 - val_loss: 3.4781e-04 - val_mean_squared_error: 3.4781e-04 - val_root_mean_squared_error: 0.0186 - 261s/epoch - 18ms/step
+Epoch 5/10
+14853/14853 - 263s - loss: 2.8369e-04 - mean_squared_error: 2.8257e-04 - root_mean_squared_error: 0.0168 - val_loss: 2.2473e-04 - val_mean_squared_error: 2.2461e-04 - val_root_mean_squared_error: 0.0150 - 263s/epoch - 18ms/step
+Epoch 6/10
+14853/14853 - 263s - loss: 2.3238e-04 - mean_squared_error: 2.2935e-04 - root_mean_squared_error: 0.0151 - val_loss: 1.8805e-04 - val_mean_squared_error: 1.8784e-04 - val_root_mean_squared_error: 0.0137 - 263s/epoch - 18ms/step
+Epoch 7/10
+14853/14853 - 263s - loss: 2.3874e-04 - mean_squared_error: 2.2621e-04 - root_mean_squared_error: 0.0150 - val_loss: 1.9247e-04 - val_mean_squared_error: 1.9247e-04 - val_root_mean_squared_error: 0.0139 - 263s/epoch - 18ms/step
+Epoch 8/10
+14853/14853 - 262s - loss: 1.8189e-04 - mean_squared_error: 1.7934e-04 - root_mean_squared_error: 0.0134 - val_loss: 1.4740e-04 - val_mean_squared_error: 1.4740e-04 - val_root_mean_squared_error: 0.0121 - 262s/epoch - 18ms/step
+Epoch 9/10
+14853/14853 - 263s - loss: 1.5808e-04 - mean_squared_error: 1.5682e-04 - root_mean_squared_error: 0.0125 - val_loss: 1.2451e-04 - val_mean_squared_error: 1.2438e-04 - val_root_mean_squared_error: 0.0112 - 263s/epoch - 18ms/step
+Epoch 10/10
+14853/14853 - 263s - loss: 1.4389e-04 - mean_squared_error: 1.4188e-04 - root_mean_squared_error: 0.0119 - val_loss: 1.2058e-04 - val_mean_squared_error: 1.2057e-04 - val_root_mean_squared_error: 0.0110 - 263s/epoch - 18ms/step
+[2K[2KTrial 4 Complete [00h 43m 50s]
+val_root_mean_squared_error: 0.010980410501360893
+
+Best val_root_mean_squared_error So Far: 0.009422967210412025
+Total elapsed time: 03h 09m 59s
+
+Search: Running Trial #5
+
+Value             |Best Value So Far |Hyperparameter
+1.7128e-05        |6.0314e-05        |learning_r
+1e-08             |1e-08             |lambda_1
+0.052719          |1.0713            |lambda_2
+0.0117            |0.016098          |lambda_3
+
+Epoch 1/10
+14853/14853 - 266s - loss: 0.0143 - mean_squared_error: 0.0124 - root_mean_squared_error: 0.1114 - val_loss: 0.0031 - val_mean_squared_error: 0.0031 - val_root_mean_squared_error: 0.0557 - 266s/epoch - 18ms/step
+Epoch 2/10
+14853/14853 - 263s - loss: 0.0017 - mean_squared_error: 0.0017 - root_mean_squared_error: 0.0409 - val_loss: 9.6680e-04 - val_mean_squared_error: 9.5387e-04 - val_root_mean_squared_error: 0.0309 - 263s/epoch - 18ms/step
+Epoch 3/10
+14853/14853 - 263s - loss: 6.4411e-04 - mean_squared_error: 6.3854e-04 - root_mean_squared_error: 0.0253 - val_loss: 4.0715e-04 - val_mean_squared_error: 4.0714e-04 - val_root_mean_squared_error: 0.0202 - 263s/epoch - 18ms/step
+Epoch 4/10
+14853/14853 - 263s - loss: 2.9712e-04 - mean_squared_error: 2.9632e-04 - root_mean_squared_error: 0.0172 - val_loss: 2.0652e-04 - val_mean_squared_error: 2.0652e-04 - val_root_mean_squared_error: 0.0144 - 263s/epoch - 18ms/step
+Epoch 5/10
+14853/14853 - 265s - loss: 1.7715e-04 - mean_squared_error: 1.7664e-04 - root_mean_squared_error: 0.0133 - val_loss: 1.4144e-04 - val_mean_squared_error: 1.4143e-04 - val_root_mean_squared_error: 0.0119 - 265s/epoch - 18ms/step
+Epoch 6/10
+14853/14853 - 266s - loss: 1.3409e-04 - mean_squared_error: 1.3359e-04 - root_mean_squared_error: 0.0116 - val_loss: 1.1206e-04 - val_mean_squared_error: 1.1206e-04 - val_root_mean_squared_error: 0.0106 - 266s/epoch - 18ms/step
+Epoch 7/10
+14853/14853 - 269s - loss: 1.1039e-04 - mean_squared_error: 1.0997e-04 - root_mean_squared_error: 0.0105 - val_loss: 1.3938e-04 - val_mean_squared_error: 1.3938e-04 - val_root_mean_squared_error: 0.0118 - 269s/epoch - 18ms/step
+Epoch 8/10
+14853/14853 - 264s - loss: 9.7217e-05 - mean_squared_error: 9.6785e-05 - root_mean_squared_error: 0.0098 - val_loss: 9.7687e-05 - val_mean_squared_error: 9.7687e-05 - val_root_mean_squared_error: 0.0099 - 264s/epoch - 18ms/step
+Epoch 9/10
+14853/14853 - 264s - loss: 8.8840e-05 - mean_squared_error: 8.8301e-05 - root_mean_squared_error: 0.0094 - val_loss: 1.0125e-04 - val_mean_squared_error: 1.0125e-04 - val_root_mean_squared_error: 0.0101 - 264s/epoch - 18ms/step
+Epoch 10/10
+14853/14853 - 264s - loss: 8.2156e-05 - mean_squared_error: 8.1785e-05 - root_mean_squared_error: 0.0090 - val_loss: 7.5526e-05 - val_mean_squared_error: 7.5505e-05 - val_root_mean_squared_error: 0.0087 - 264s/epoch - 18ms/step
+[2K[2KTrial 5 Complete [00h 44m 12s]
+val_root_mean_squared_error: 0.008689339272677898
+
+Best val_root_mean_squared_error So Far: 0.008689339272677898
+Total elapsed time: 03h 54m 11s
+Results summary
+Results in /home/ubuntu/cs230-project/trained_models_hyperparameter_tuning_LSTM/1
+Showing 3 best trials
+<keras_tuner.engine.objective.Objective object at 0x7ff66a470ee0>
+Trial summary
+Hyperparameters:
+learning_r: 1.7128245714107904e-05
+lambda_1: 1e-08
+lambda_2: 0.052718783932050206
+lambda_3: 0.011700255002918198
+Score: 0.008689339272677898
+Trial summary
+Hyperparameters:
+learning_r: 6.031389409485636e-05
+lambda_1: 1e-08
+lambda_2: 1.0712707102245826
+lambda_3: 0.016098246273492035
+Score: 0.009422967210412025
+Trial summary
+Hyperparameters:
+learning_r: 2.044965271832964e-05
+lambda_1: 1e-08
+lambda_2: 0.012650639561463204
+lambda_3: 0.09881782840334241
+Score: 0.010980410501360893
+Model: "sequential_1"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ lstm_3 (LSTM)               (None, None, 96)          55296     
+                                                                 
+ lstm_4 (LSTM)               (None, None, 96)          74112     
+                                                                 
+ lstm_5 (LSTM)               (None, None, 96)          74112     
+                                                                 
+ time_distributed_1 (TimeDis  (None, None, 105)        10185     
+ tributed)                                                       
+                                                                 
+=================================================================
+Total params: 213,705
+Trainable params: 213,705
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1/15
+14853/14853 - 265s - loss: 0.0154 - mean_squared_error: 0.0127 - root_mean_squared_error: 0.1128 - val_loss: 0.0027 - val_mean_squared_error: 0.0027 - val_root_mean_squared_error: 0.0518 - 265s/epoch - 18ms/step
+Epoch 2/15
+14853/14853 - 260s - loss: 0.0015 - mean_squared_error: 0.0014 - root_mean_squared_error: 0.0380 - val_loss: 7.6038e-04 - val_mean_squared_error: 7.5987e-04 - val_root_mean_squared_error: 0.0276 - 260s/epoch - 17ms/step
+Epoch 3/15
+14853/14853 - 261s - loss: 5.0401e-04 - mean_squared_error: 5.0312e-04 - root_mean_squared_error: 0.0224 - val_loss: 3.1204e-04 - val_mean_squared_error: 3.0938e-04 - val_root_mean_squared_error: 0.0176 - 261s/epoch - 18ms/step
+Epoch 4/15
+14853/14853 - 259s - loss: 2.4742e-04 - mean_squared_error: 2.4632e-04 - root_mean_squared_error: 0.0157 - val_loss: 1.9288e-04 - val_mean_squared_error: 1.9285e-04 - val_root_mean_squared_error: 0.0139 - 259s/epoch - 17ms/step
+Epoch 5/15
+14853/14853 - 259s - loss: 1.7323e-04 - mean_squared_error: 1.7176e-04 - root_mean_squared_error: 0.0131 - val_loss: 1.5258e-04 - val_mean_squared_error: 1.5169e-04 - val_root_mean_squared_error: 0.0123 - 259s/epoch - 17ms/step
+Epoch 6/15
+14853/14853 - 260s - loss: 1.3327e-04 - mean_squared_error: 1.3257e-04 - root_mean_squared_error: 0.0115 - val_loss: 1.1477e-04 - val_mean_squared_error: 1.1477e-04 - val_root_mean_squared_error: 0.0107 - 260s/epoch - 17ms/step
+Epoch 7/15
+14853/14853 - 261s - loss: 1.1135e-04 - mean_squared_error: 1.1092e-04 - root_mean_squared_error: 0.0105 - val_loss: 9.6805e-05 - val_mean_squared_error: 9.6803e-05 - val_root_mean_squared_error: 0.0098 - 261s/epoch - 18ms/step
+Epoch 8/15
+14853/14853 - 262s - loss: 1.0291e-04 - mean_squared_error: 1.0167e-04 - root_mean_squared_error: 0.0101 - val_loss: 9.8442e-05 - val_mean_squared_error: 9.8421e-05 - val_root_mean_squared_error: 0.0099 - 262s/epoch - 18ms/step
+Epoch 9/15
+14853/14853 - 261s - loss: 9.0541e-05 - mean_squared_error: 9.0136e-05 - root_mean_squared_error: 0.0095 - val_loss: 8.1426e-05 - val_mean_squared_error: 8.1426e-05 - val_root_mean_squared_error: 0.0090 - 261s/epoch - 18ms/step
+Epoch 10/15
+14853/14853 - 261s - loss: 8.5577e-05 - mean_squared_error: 8.4962e-05 - root_mean_squared_error: 0.0092 - val_loss: 8.1271e-05 - val_mean_squared_error: 8.1261e-05 - val_root_mean_squared_error: 0.0090 - 261s/epoch - 18ms/step
+Epoch 11/15
+14853/14853 - 260s - loss: 7.8810e-05 - mean_squared_error: 7.8350e-05 - root_mean_squared_error: 0.0089 - val_loss: 7.2302e-05 - val_mean_squared_error: 7.2054e-05 - val_root_mean_squared_error: 0.0085 - 260s/epoch - 18ms/step
+Epoch 12/15
+14853/14853 - 262s - loss: 7.5493e-05 - mean_squared_error: 7.4849e-05 - root_mean_squared_error: 0.0087 - val_loss: 6.8028e-05 - val_mean_squared_error: 6.8028e-05 - val_root_mean_squared_error: 0.0082 - 262s/epoch - 18ms/step
+Epoch 13/15
+14853/14853 - 261s - loss: 7.3359e-05 - mean_squared_error: 7.2518e-05 - root_mean_squared_error: 0.0085 - val_loss: 6.5152e-05 - val_mean_squared_error: 6.5145e-05 - val_root_mean_squared_error: 0.0081 - 261s/epoch - 18ms/step
+Epoch 14/15
+14853/14853 - 261s - loss: 6.9363e-05 - mean_squared_error: 6.8840e-05 - root_mean_squared_error: 0.0083 - val_loss: 6.6332e-05 - val_mean_squared_error: 6.6332e-05 - val_root_mean_squared_error: 0.0081 - 261s/epoch - 18ms/step
+Epoch 15/15
+14853/14853 - 263s - loss: 7.0346e-05 - mean_squared_error: 6.9198e-05 - root_mean_squared_error: 0.0083 - val_loss: 6.6759e-05 - val_mean_squared_error: 6.6759e-05 - val_root_mean_squared_error: 0.0082 - 263s/epoch - 18ms/step

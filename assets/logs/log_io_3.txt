@@ -1,0 +1,64 @@
+2022-12-08 20:08:10.130234: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-12-08 20:08:12.342680: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:12.374246: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:12.374582: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:12.389580: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-12-08 20:08:12.390232: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:12.390516: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:12.390735: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.124105: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.124506: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.124827: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.125103: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 18203 MB memory:  -> device: 0, name: NVIDIA A10G, pci bus id: 0000:00:1e.0, compute capability: 8.6
+WARNING:tensorflow:Layer lstm will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:Layer lstm_1 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+WARNING:tensorflow:Layer lstm_2 will not use cuDNN kernels since it doesn't meet the criteria. It will use a generic GPU kernel as fallback when running on GPU.
+2022-12-08 20:08:13.941978: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.942497: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.942819: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.943174: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.943506: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:980] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-12-08 20:08:13.943732: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 18203 MB memory:  -> device: 0, name: NVIDIA A10G, pci bus id: 0000:00:1e.0, compute capability: 8.6
+2022-12-08 20:08:14.034031: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:354] MLIR V1 optimization pass is not enabled
+Epoch 1/10
+2022-12-08 20:08:15.377852: W tensorflow/c/c_api.cc:349] Operation '{name:'lstm/while' id:199 op device:{requested: '', assigned: ''} def:{{{node lstm/while}} = While[T=[DT_INT32, DT_INT32, DT_INT32, DT_VARIANT, DT_FLOAT, 12032779882972063251, DT_VARIANT, DT_VARIANT, DT_VARIANT, DT_VARIANT, DT_VARIANT], _lower_using_switch_merge=true, _num_original_outputs=44, _read_only_resource_inputs=[8, 9, 10], _stateful_parallelism=false, body=lstm_while_body_101[], cond=lstm_while_cond_100[], output_shapes=[[], [], [], [], [?,96], 17584562593488234240, [], [], [], [], []], parallel_iterations=32](lstm/while/loop_counter, lstm/while/maximum_iterations, lstm/time, lstm/TensorArrayV2_1, lstm/zeros, lstm/zeros_1, lstm/strided_slice_1, lstm/TensorArrayUnstack/TensorListFromTensor, lstm/lstm_cell/kernel, lstm/lstm_cell/recurrent_kernel, lstm/lstm_cell/bias, lstm/while/EmptyTensorList, lstm/while/EmptyTensorList_1, lstm/while/EmptyTensorList_2, lstm/while/EmptyTensorList_3, lstm/while/EmptyTensorList_4, lstm/while/EmptyTensorList_5, lstm/while/EmptyTensorList_6, lstm/while/EmptyTensorList_7, lstm/while/EmptyTensorList_8, lstm/while/EmptyTensorList_9, lstm/while/EmptyTensorList_10, lstm/while/EmptyTensorList_11, lstm/while/EmptyTensorList_12, lstm/while/EmptyTensorList_13, lstm/while/EmptyTensorList_14, lstm/while/EmptyTensorList_15, lstm/while/EmptyTensorList_16, lstm/while/EmptyTensorList_17, lstm/while/EmptyTensorList_18, lstm/while/EmptyTensorList_19, lstm/while/EmptyTensorList_20, lstm/while/EmptyTensorList_21, lstm/while/EmptyTensorList_22, lstm/while/EmptyTensorList_23, lstm/while/EmptyTensorList_24, lstm/while/EmptyTensorList_25, lstm/while/EmptyTensorList_26, lstm/while/EmptyTensorList_27, lstm/while/EmptyTensorList_28, lstm/while/EmptyTensorList_29, lstm/while/EmptyTensorList_30, lstm/while/EmptyTensorList_31, lstm/while/EmptyTensorList_32)}}' was changed by setting attribute after it was run by a session. This mutation will have no effect, and will trigger an error in the future. Either don't modify nodes after running them or create a new session.
+2022-12-08 20:08:17.821317: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+/home/ubuntu/anaconda3/envs/cs-230-project/lib/python3.9/site-packages/keras/engine/training_v1.py:2332: UserWarning: `Model.state_updates` will be removed in a future version. This property should not be used in TensorFlow 2.0, as `updates` are applied automatically.
+  updates = self.state_updates
+3300/3300 - 305s - loss: 0.2412 - mean_squared_error: 0.0155 - root_mean_squared_error: 0.1244 - val_loss: 0.1681 - val_mean_squared_error: 0.0192 - val_root_mean_squared_error: 0.1386 - 305s/epoch - 92ms/step
+Epoch 2/10
+3300/3300 - 457s - loss: 0.1620 - mean_squared_error: 0.0243 - root_mean_squared_error: 0.1559 - val_loss: 0.1377 - val_mean_squared_error: 0.0245 - val_root_mean_squared_error: 0.1567 - 457s/epoch - 138ms/step
+Epoch 3/10
+3300/3300 - 465s - loss: 0.1427 - mean_squared_error: 0.0260 - root_mean_squared_error: 0.1613 - val_loss: 0.1326 - val_mean_squared_error: 0.0251 - val_root_mean_squared_error: 0.1583 - 465s/epoch - 141ms/step
+Epoch 4/10
+3300/3300 - 465s - loss: 0.1453 - mean_squared_error: 0.0277 - root_mean_squared_error: 0.1664 - val_loss: 0.1252 - val_mean_squared_error: 0.0251 - val_root_mean_squared_error: 0.1585 - 465s/epoch - 141ms/step
+Epoch 5/10
+3300/3300 - 463s - loss: 0.1357 - mean_squared_error: 0.0269 - root_mean_squared_error: 0.1639 - val_loss: 0.1252 - val_mean_squared_error: 0.0260 - val_root_mean_squared_error: 0.1611 - 463s/epoch - 140ms/step
+Epoch 6/10
+3300/3300 - 460s - loss: 0.1343 - mean_squared_error: 0.0287 - root_mean_squared_error: 0.1694 - val_loss: 0.1270 - val_mean_squared_error: 0.0288 - val_root_mean_squared_error: 0.1697 - 460s/epoch - 139ms/step
+Epoch 7/10
+3300/3300 - 465s - loss: 0.1333 - mean_squared_error: 0.0305 - root_mean_squared_error: 0.1745 - val_loss: 0.1216 - val_mean_squared_error: 0.0287 - val_root_mean_squared_error: 0.1694 - 465s/epoch - 141ms/step
+Epoch 8/10
+3300/3300 - 466s - loss: 0.1318 - mean_squared_error: 0.0316 - root_mean_squared_error: 0.1778 - val_loss: 0.1280 - val_mean_squared_error: 0.0318 - val_root_mean_squared_error: 0.1784 - 466s/epoch - 141ms/step
+Epoch 9/10
+3300/3300 - 463s - loss: 0.1263 - mean_squared_error: 0.0314 - root_mean_squared_error: 0.1771 - val_loss: 0.1222 - val_mean_squared_error: 0.0309 - val_root_mean_squared_error: 0.1759 - 463s/epoch - 140ms/step
+Epoch 10/10
+3300/3300 - 458s - loss: 0.1285 - mean_squared_error: 0.0331 - root_mean_squared_error: 0.1820 - val_loss: 0.1197 - val_mean_squared_error: 0.0311 - val_root_mean_squared_error: 0.1764 - 458s/epoch - 139ms/step
+Traceback (most recent call last):
+  File "/home/ubuntu/cs230-project/trainLSTM.py", line 303, in <module>
+    plotLossOverEpochs(history.history,'training_'+loss_f+'_'+str(nHLayers)+'_'+str(nHUnits)+'_'+str(learning_r))
+  File "/home/ubuntu/cs230-project/utilities.py", line 73, in plotLossOverEpochs
+    plt.savefig(fig_name)
+  File "/home/ubuntu/anaconda3/envs/cs-230-project/lib/python3.9/site-packages/matplotlib/pyplot.py", line 954, in savefig
+    res = fig.savefig(*args, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/cs-230-project/lib/python3.9/site-packages/matplotlib/figure.py", line 3274, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "/home/ubuntu/anaconda3/envs/cs-230-project/lib/python3.9/site-packages/matplotlib/backend_bases.py", line 2285, in print_figure
+    with cbook._setattr_cm(self, manager=None), \
+  File "/home/ubuntu/anaconda3/envs/cs-230-project/lib/python3.9/contextlib.py", line 119, in __enter__
+    return next(self.gen)
+  File "/home/ubuntu/anaconda3/envs/cs-230-project/lib/python3.9/site-packages/matplotlib/backend_bases.py", line 2192, in _switch_canvas_and_return_print_method
+    raise ValueError(
+ValueError: Format '325296781226743e-05' is not supported (supported formats: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff, webp)
