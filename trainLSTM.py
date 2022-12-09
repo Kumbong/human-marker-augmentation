@@ -300,7 +300,7 @@ if runTraining:
                         use_multiprocessing=use_multiprocessing, workers=nWorkers,
                         callbacks=[callback])
     #print(history.history)
-    plotLossOverEpochs(history.history,'training_'+loss_f+'_'+str(nHLayers)+'_'+str(nHUnits)+'_'+str(learning_r))
+    plotLossOverEpochs(history.history,'training_'+loss_f+'_case_'+str(case))
 
 # %% Save model.
 if saveTrainedModel:

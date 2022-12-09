@@ -520,12 +520,12 @@ def get_centroid(markers):
     
 def get_angle_range(segment1, segment2):
     if(segment1 == "tibia" and segment2 == "femur"):
-        return [math.radians(0),math.radians(155)]
+        return [math.radians(25),math.radians(180)]
     elif(segment1 == "calceneous" and segment2 == "tibia"):
-        return [math.radians(-65),math.radians(65)]
+        return [math.radians(35),math.radians(155)]
     elif (segment1 == "femur" and segment2 == "pelvis"):
-        return [math.radians(-45),math.radians(135)]
+        return [math.radians(45),math.radians(180)]
     else:
-        return [0,0]
+        return [0,math.radians(180)]
 
 
