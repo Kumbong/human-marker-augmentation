@@ -1,6 +1,6 @@
-# CS-230: Human body marker augmentation
+# CS-230: Human Marker Augmentation with Deep Learning using Constraints
 
-### Install requirements (see docker below too)
+### Install requirements
 1. Install [Anaconda](https://www.anaconda.com/)
 2. Clone the repository to your machine.
 3. Open the Anaconda command prompt and create a conda environment: `conda create -n cs-230-project`
@@ -9,27 +9,20 @@
 6. Install other dependencies. Navigate to the local directory where the repository is cloned, then: `python -m pip install -r requirements.txt`
 
 ### Dataset
-- A subset of the dataset is available [here](https://drive.google.com/file/d/1zstU911Jc9_Y692pjhk8smBwRnOh5hr1/view?usp=sharing). Download it into augmenter-cs230/Data. The path of the first feature time sequence should be something like /augmenter-cs230/Data/data_CS230/feature_0.npy.
+- A subset of the dataset is available [here](https://drive.google.com/file/d/1zstU911Jc9_Y692pjhk8smBwRnOh5hr1/view?usp=sharing). Download it into /Data. The path of the first feature time sequence should be something like /Data/data_CS230/feature_0.npy.
 
 ### Overview files
 **Main files**:
-- `trainLSTM.py`: script to train LSTM model.
-- `evaluateLSTM.py`: script to evaluate LSTM model.
-- `testLSTM.py`: script to test LSTM model on failure example.
-- `myModels.py`: script describing the model architecture.
-- `myDataGenerator.py`: script describing the data generator.
-- `mySettings.py`: script with some tunable model settings.
+- `myModels.py`: script describing the model architecture for trainLSTM.py and loss functions.
+- `trainLSTM.py`: script to train LSTM model with specified hyperparameters.
+- `myModelsHyperParameters.py`: script describing the model architecture for trainLSTM.py and loss functions.
+- `tuneHyperParametersLSTM.py`: script to tune certain hyperparameters and train best LSTM model.
+- `testLSTM.py`: script to test an LSTM model on a specified failure example.
+- `mySettings.py`: script with some modifiable model settings (for both trainLSTM.py and tuneHyperParametersLSTM.py).
 
 **Other files (you should not need to interact with these files)**:
 - `splitData.py`: script to split the data into different sets.
 - `infoDatasets.py`: some details about the dataset.
 - `utilities.py`: various utilities.
-
-(please ignore the following section for now)
-### Docker
-- You can also use docker. The following instructions worked for me on a machine where cuda and cudnn were installed, you should adjust the paths and names according to your working environment.
-- Build image: eg `docker build -t antoine/tensorflow:latest-gpu-0.1 .`
-- Train model: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/trainLSTM.py`
-- Evaluate model: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/evaluateLSTM.py`
-- Test model: eg `sudo docker run --gpus all -it --rm -v /home/clarkadmin/Documents/MyRepositories/augmenter-cs230:/augmenter-cs230 antoine/tensorflow:latest-gpu-0.1 python augmenter-cs230/testLSTM.py`
-- The files might be locked after training, to unlock run `sudo chown -R $USER: $HOME`
+- `myDataGenerator.py`: script describing the data generator.
+- `evaluateLSTM.py`: script to evaluate LSTM model.

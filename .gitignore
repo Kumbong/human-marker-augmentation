@@ -12,10 +12,16 @@ envs
 # Key
 cs-230-project-aws-key.pem
 
+# Backup Models
+backup
+
 # Test
 # test/*
 # !test/failure_example.trc
 # !test/augmented_failure_example_reference.trc
+
+# Tuned Models
+trained_models_hyperparameter_tuning_LSTM
 
 # TrainedModels
 trained_models_LSTM/*
