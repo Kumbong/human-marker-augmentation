@@ -4,15 +4,22 @@ import dataman
 import copy
 import tensorflow as tf
 import platform
+import argparse
 
 from mySettings import get_lstm_settings, get_lstm_tuner_settings
 
+parser = argparse.ArgumentParser(description='Train LSTM with fixed hyperparameter settings.')
+parser.add_argument('--case', type=str, help="Setting case to execute", required=True)
+parser.add_argument('--fail_case', type=str, help="Setting which failure case to execute", required=True)
+parser.add_argument('--tuned', action='store_true', help="Indicates that the model was trained while tuning the hyperparameters")
+args = parser.parse_args()
+
 # %% User settings.
-# Select case you want to train, see mySettings for case-specific settings.
-case = "reference"
+# Select case you want to test, see mySettings for case-specific settings.
+case = args.case
 # Set hyperparameterTuning to True if the model was trained while tuning the
 # hyperparameters
-hyperparameterTuning = False
+hyperparameterTuning = args.tuned
 
 # %% Paths.
 if platform.system() == 'Linux':
@@ -32,7 +39,7 @@ else:
     pathCModel = os.path.join(pathTrainedModels, "")
 
 # %% Failure example
-failure_case_name = 'calf_raise_side_fast'
+failure_case_name = args.fail_case
 pathFailreDir = os.path.join(pathMain, 'test')
 pathFile = os.path.join(pathFailreDir, failure_case_name + ".trc")
 subject_height = 1.96

@@ -12,12 +12,10 @@ from utilities import getAllMarkers, rotateArray, plotLossOverEpochs
 from utilities import getMarkers_lowerExtremity_angularconstraints
 import argparse
 
-parser = argparse.ArgumentParser(description='Process some integers.')
-parser.add_argument('--case', type=str, help="Setting case to execute")
+parser = argparse.ArgumentParser(description='Train LSTM with fixed hyperparameter settings.')
+parser.add_argument('--case', type=str, help="Setting case to execute", required=True)
 args = parser.parse_args()
 
-if args.case == None:
-    raise Exception("Need a case number")
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
 case = args.case

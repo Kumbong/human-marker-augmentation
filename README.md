@@ -19,10 +19,12 @@
 - `tuneHyperParametersLSTM.py`: script to tune certain hyperparameters and train best LSTM model.
 - `testLSTM.py`: script to test an LSTM model on a specified failure example.
 - `mySettings.py`: script with some modifiable model settings (for both trainLSTM.py and tuneHyperParametersLSTM.py).
+- `utilities.py`: various utilities for getting marker lists and defining relevant segments for constraints.
 
 **Other files (you should not need to interact with these files)**:
 - `splitData.py`: script to split the data into different sets.
 - `infoDatasets.py`: some details about the dataset.
-- `utilities.py`: various utilities.
 - `myDataGenerator.py`: script describing the data generator.
 - `evaluateLSTM.py`: script to evaluate LSTM model.
+- `analyzeDataset.py`: script to inspect samples from the dataset.
+- `dataman.py`: File definition for importing marker data into OpenSim

@@ -214,7 +214,7 @@ def get_lstm_settings(a):
 def get_lstm_tuner_settings(a):
 
     settings = {
-        "0": # Only output length constraints
+        "OLC": # Only output length constraints
         {'augmenter_type': 'lowerExtremity',
          "poseDetector": 'OpenPose',
          "idxDatasets": [idx for idx in range(0, 1)],
@@ -247,7 +247,7 @@ def get_lstm_tuner_settings(a):
          'nRotations': 8,
          'bidirectional': False},
 
-        "1": # Only angular constraints
+        "OAC": # Only angular constraints
         {'augmenter_type': 'lowerExtremity',
          "poseDetector": 'OpenPose',
          "idxDatasets": [idx for idx in range(0, 1)],
@@ -280,7 +280,7 @@ def get_lstm_tuner_settings(a):
          'nRotations': 8,
          'bidirectional': False},
          
-         "2": # output length + angular constraints
+         "OLC_OAC": # output length + angular constraints
         {'augmenter_type': 'lowerExtremity',
          "poseDetector": 'OpenPose',
          "idxDatasets": [idx for idx in range(0, 1)],
