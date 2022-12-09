@@ -91,7 +91,7 @@ class get_lstm_model(HyperModel):
         
         opt=Adam(learning_rate=learning_r)
 
-        self.loss_f = output_constrained_loss(self.length_constraints, self.angular_constraints, self.batch_size, self.desired_nFrames, lambda_1, lambda_2, lambda_3)
+        self.loss_f = output_constrained_loss(self.length_constraints, self.angular_constraints, None, self.batch_size, self.desired_nFrames, lambda_1, lambda_2, lambda_3, 0.0)
 
         model.compile(
             optimizer=opt,

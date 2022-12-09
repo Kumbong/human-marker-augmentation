@@ -393,10 +393,48 @@ def getMarkers_upperExtremity_noPelvis():
 
 def getMarkers_lowerExtremity_constraints():
 
-    length_constraints = [["r_thigh1_study","r_thigh2_study","r_thigh3_study"],["L_thigh1_study","L_thigh2_study","L_thigh3_study"],
+    output_length_constraints = [["r_thigh1_study","r_thigh2_study","r_thigh3_study"],["L_thigh1_study","L_thigh2_study","L_thigh3_study"],
     ["r_sh1_study","r_sh2_study","r_sh3_study"],["r_ankle_study", "r_mankle_study"],["L_sh1_study","L_sh2_study","L_sh3_study"],["L_ankle_study", "L_mankle_study"],["L_toe_study", "L_calc_study", "L_5meta_study"],
     ["r_toe_study","r_5meta_study","r_calc_study"],["r.ASIS_study", "r.PSIS_study", "L.PSIS_study", "RHJC_study", "LHJC_study"],["r_shoulder_study", "L_shoulder_study", "C7_study"],["r_knee_study","r_mknee_study"],["L_knee_study","L_mknee_study"]]
-    return length_constraints
+    return output_length_constraints
+
+def getMarkers_lowerExtremity_IO_constraints(feature_markers, response_markers):
+
+    input_marker_blocks = [["Neck"], 
+                            ["RShoulder"], 
+                            ["LShoulder"], 
+                            ["LHip", "RHip"], 
+                            ["LHip"],
+                            ["RHip"],
+                            ["LKnee"],
+                            ["RKnee"],
+                            ["LAnkle", "LHeel", "LSmallToe", "LBigToe"],
+                            ["RAnkle", "RHeel", "RSmallToe", "RBigToe"]]
+
+    output_marker_blocks = [["C7_study"], 
+                            ["r_shoulder_study"], 
+                            ["L_shoulder_study"], 
+                            ["r.ASIS_study", "L.ASIS_study", "r.PSIS_study", "L.PSIS_study", "RHJC_study", "LHJC_study"],
+                            ["L_thigh1_study", "L_thigh2_study", "L_thigh3_study"],
+                            ["r_thigh1_study", "r_thigh2_study", "r_thigh3_study"],
+                            ["L_knee_study","L_mknee_study", "L_sh1_study", "L_sh2_study", "L_sh3_study"],
+                            ["r_knee_study", "r_mknee_study", "r_sh1_study", "r_sh2_study", "r_sh3_study"],
+                            ["L_ankle_study", "L_mankle_study", "L_toe_study", "L_calc_study", "L_5meta_study"],
+                            ["r_ankle_study", "r_mankle_study", "r_toe_study", "r_5meta_study", "r_calc_study"]]
+
+    assert len(input_marker_blocks) == len(output_marker_blocks)
+
+    input_marker_constraint_indices = []
+
+    output_marker_constraint_indices = []
+
+    for input_marker_block, output_marker_block in zip(input_marker_blocks, output_marker_blocks):
+        for input_marker in input_marker_block:
+            for output_marker in output_marker_block:
+                input_marker_constraint_indices.append([feature_markers.index(input_marker)*3, feature_markers.index(input_marker)*3 + 1, feature_markers.index(input_marker)*3 + 2])
+                output_marker_constraint_indices.append([response_markers.index(output_marker)*3, response_markers.index(output_marker)*3 + 1, response_markers.index(output_marker)*3 + 2])
+                    
+    return input_marker_constraint_indices, output_marker_constraint_indices
 
 # %% Rotate data.
 def rotateArray(data, axis, value, inDegrees=True):
@@ -482,12 +520,12 @@ def get_centroid(markers):
     
 def get_angle_range(segment1, segment2):
     if(segment1 == "tibia" and segment2 == "femur"):
-        return [math.radians(0),math.radians(155)]
+        return [math.radians(25),math.radians(180)]
     elif(segment1 == "calceneous" and segment2 == "tibia"):
-        return [math.radians(-65),math.radians(65)]
+        return [math.radians(35),math.radians(155)]
     elif (segment1 == "femur" and segment2 == "pelvis"):
-        return [math.radians(-45),math.radians(135)]
+        return [math.radians(45),math.radians(180)]
     else:
-        return [0,0]
+        return [0,math.radians(180)]
 
 

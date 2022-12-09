@@ -10,14 +10,29 @@ from myModels import get_lstm_model
 from myDataGenerator import lstmDataGenerator
 from utilities import getAllMarkers, rotateArray, plotLossOverEpochs
 from utilities import getMarkers_lowerExtremity_angularconstraints
+import argparse
 
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--case', type=str, help="Setting case to execute")
+args = parser.parse_args()
 
+if args.case == None:
+    raise Exception("Need a case number")
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
-case = 1
+case = args.case
 
 runTraining = True
 saveTrainedModel = True
+
+tf.compat.v1.experimental.output_all_intermediates(True)
+
+gpu_devices = tf.config.experimental.list_physical_devices('GPU')
+for device in gpu_devices:
+    tf.config.experimental.set_memory_growth(device, True)
+
+from tensorflow.python.framework.ops import disable_eager_execution
+disable_eager_execution()
 
 # %% Paths.
 if platform.system() == 'Linux':
@@ -43,6 +58,7 @@ nEpochs = settings["nEpochs"]
 lambda_1 = settings["lambda_1"]
 lambda_2 = settings["lambda_2"]
 lambda_3 = settings["lambda_3"]
+lambda_4 = settings["lambda_4"]
 batchSize = settings["batchSize"]
 idxFold = settings["idxFold"] 
 mean_subtraction = settings["mean_subtraction"]
@@ -120,9 +136,10 @@ if augmenter_type == 'fullBody':
         raise ValueError('poseDetector not recognized')        
 elif augmenter_type == 'lowerExtremity':
     if poseDetector == 'OpenPose':
-        from utilities import getOpenPoseMarkers_lowerExtremity, getMarkers_lowerExtremity_constraints, translateConstraints
-        _, response_markers, idx_in_all_feature_markers, idx_in_all_response_markers = (
+        from utilities import getOpenPoseMarkers_lowerExtremity, getMarkers_lowerExtremity_constraints, translateConstraints, getMarkers_lowerExtremity_IO_constraints
+        feature_markers, response_markers, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getOpenPoseMarkers_lowerExtremity())
+        IO_constraints = getMarkers_lowerExtremity_IO_constraints(feature_markers, response_markers)
         length_constraints = translateConstraints(getMarkers_lowerExtremity_constraints(), response_markers)
         angular_constraints = getMarkers_lowerExtremity_angularconstraints()
    
@@ -271,7 +288,7 @@ val_generator = lstmDataGenerator(partition['val'], pathData_all, **params)
 # %% Initialize model.   
 model = get_lstm_model(input_dim=nFeature_markers+nAddFeatures, output_dim=nResponse_markers,
                        nHiddenLayers=nHLayers, nHUnits=nHUnits, learning_r=learning_r, loss_f=loss_f,
-                       batch_size = batchSize,desired_nFrames=desired_nFrames,bidirectional=bidirectional, length_constraints=length_constraints, angular_constraints=angular_constraints, lambda_1 = lambda_1, lambda_2 = lambda_2, lambda_3 = lambda_3)
+                       batch_size = batchSize,desired_nFrames=desired_nFrames,bidirectional=bidirectional, length_constraints=length_constraints, angular_constraints=angular_constraints, IO_constraints=IO_constraints, lambda_1 = lambda_1, lambda_2 = lambda_2, lambda_3 = lambda_3, lambda_4=lambda_4)
 
 # %% Train model.
 if runTraining:
@@ -279,11 +296,11 @@ if runTraining:
         monitor='val_loss', patience=3, verbose=1, mode="auto",
         restore_best_weights=True)
     history = model.fit(train_generator, validation_data=val_generator, 
-                        epochs=nEpochs, batch_size=batchSize, verbose=2,
+                        epochs=nEpochs, verbose=2,
                         use_multiprocessing=use_multiprocessing, workers=nWorkers,
                         callbacks=[callback])
     #print(history.history)
-    plotLossOverEpochs(history.history,'training_'+loss_f+'_'+str(nHLayers)+'_'+str(nHUnits)+'_'+str(learning_r))
+    plotLossOverEpochs(history.history,'training_'+loss_f+'_case_'+str(case))
 
 # %% Save model.
 if saveTrainedModel:
