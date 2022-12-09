@@ -1,6 +1,6 @@
 import os
 import numpy as np
-import dataman
+import utils.dataman as dataman
 import copy
 import tensorflow as tf
 import platform
@@ -57,36 +57,36 @@ else:
     settings = get_lstm_settings(case)
 augmenter_type = settings["augmenter_type"]
 poseDetector = settings["poseDetector"]
-from utilities import getAllMarkers
+from utils.utilities import getAllMarkers
 feature_markers_all, response_markers_all = getAllMarkers()
 if augmenter_type == 'fullBody':
     if poseDetector == 'OpenPose':
-        from utilities import getOpenPoseMarkers_fullBody
+        from utils.utilities import getOpenPoseMarkers_fullBody
         feature_markers, response_markers, _, _ = (
             getOpenPoseMarkers_fullBody())
     elif poseDetector == 'mmpose':
-        from utilities import getMMposeMarkers_fullBody
+        from utils.utilities import getMMposeMarkers_fullBody
         feature_markers, response_markers, _, _ = (
             getMMposeMarkers_fullBody())
     else:
         raise ValueError('poseDetector not recognized')        
 elif augmenter_type == 'lowerExtremity':
     if poseDetector == 'OpenPose':
-        from utilities import getOpenPoseMarkers_lowerExtremity
+        from utils.utilities import getOpenPoseMarkers_lowerExtremity
         feature_markers, response_markers, _, _ = (
             getOpenPoseMarkers_lowerExtremity())
     elif poseDetector == 'mmpose':
-        from utilities import getMMposeMarkers_lowerExtremity
+        from utils.utilities import getMMposeMarkers_lowerExtremity
         feature_markers, response_markers, _, _ = (
             getMMposeMarkers_lowerExtremity())
     else:
         raise ValueError('poseDetector not recognized')
 elif augmenter_type == 'upperExtremity_pelvis':
-    from utilities import getMarkers_upperExtremity_pelvis
+    from utils.utilities import getMarkers_upperExtremity_pelvis
     feature_markers, response_markers, _, _ = (
         getMarkers_upperExtremity_pelvis())
 elif augmenter_type == 'upperExtremity_noPelvis':
-    from utilities import getMarkers_upperExtremity_noPelvis
+    from utils.utilities import getMarkers_upperExtremity_noPelvis
     feature_markers, response_markers, _, _ = (
         getMarkers_upperExtremity_noPelvis())
 else:
@@ -94,7 +94,7 @@ else:
 
 # %% Prepare inputs.
 # Step 1: import .trc file with OpenPose marker trajectories.
-from utilities import TRC2numpy
+from utils.utilities import TRC2numpy
 trc_data = TRC2numpy(pathFile, feature_markers)
 trc_data_time = trc_data[:,0]
 trc_data_data = trc_data[:,1:]

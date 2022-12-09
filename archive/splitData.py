@@ -8,6 +8,7 @@ import os
 import numpy as np
 from infoDatasets import getInfodataset
 
+
 saveData = True
 # TODO: not really splitting for k-fold cross-validation, it is just splitting
 # the training and validation sets nFold different times.

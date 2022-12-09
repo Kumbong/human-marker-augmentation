@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial.transform import Rotation as R
 from itertools import combinations
-import dataman
+import utils.dataman as dataman
 import math
 import pickle as pkl
 import os

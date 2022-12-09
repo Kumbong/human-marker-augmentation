@@ -6,10 +6,10 @@ import multiprocessing
 import tensorflow as tf
 
 from mySettings import get_lstm_settings
-from myModels import get_lstm_model
-from myDataGenerator import lstmDataGenerator
-from utilities import getAllMarkers, rotateArray, plotLossOverEpochs
-from utilities import getMarkers_lowerExtremity_angularconstraints
+from modeldefs.myModels import get_lstm_model
+from utils.myDataGenerator import lstmDataGenerator
+from utils.utilities import getAllMarkers, rotateArray, plotLossOverEpochs
+from utils.utilities import getMarkers_lowerExtremity_angularconstraints
 import argparse
 
 parser = argparse.ArgumentParser(description='Train LSTM with fixed hyperparameter settings.')
@@ -123,18 +123,18 @@ length_constraints = None
 angular_constraints= None
 if augmenter_type == 'fullBody':
     if poseDetector == 'OpenPose':
-        from utilities import getOpenPoseMarkers_fullBody
+        from utils.utilities import getOpenPoseMarkers_fullBody
         _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getOpenPoseMarkers_fullBody())
     elif poseDetector == 'mmpose':
-        from utilities import getMMposeMarkers_fullBody
+        from utils.utilities import getMMposeMarkers_fullBody
         _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getMMposeMarkers_fullBody())
     else:
         raise ValueError('poseDetector not recognized')        
 elif augmenter_type == 'lowerExtremity':
     if poseDetector == 'OpenPose':
-        from utilities import getOpenPoseMarkers_lowerExtremity, getMarkers_lowerExtremity_constraints, translateConstraints, getMarkers_lowerExtremity_IO_constraints
+        from utils.utilities import getOpenPoseMarkers_lowerExtremity, getMarkers_lowerExtremity_constraints, translateConstraints, getMarkers_lowerExtremity_IO_constraints
         feature_markers, response_markers, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getOpenPoseMarkers_lowerExtremity())
         IO_constraints = getMarkers_lowerExtremity_IO_constraints(feature_markers, response_markers)
@@ -142,17 +142,17 @@ elif augmenter_type == 'lowerExtremity':
         angular_constraints = getMarkers_lowerExtremity_angularconstraints()
    
     elif poseDetector == 'mmpose':
-        from utilities import getMMposeMarkers_lowerExtremity
+        from utils.utilities import getMMposeMarkers_lowerExtremity
         _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
             getMMposeMarkers_lowerExtremity())
     else:
         raise ValueError('poseDetector not recognized')
 elif augmenter_type == 'upperExtremity_pelvis':
-    from utilities import getMarkers_upperExtremity_pelvis
+    from utils.utilities import getMarkers_upperExtremity_pelvis
     _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
         getMarkers_upperExtremity_pelvis())
 elif augmenter_type == 'upperExtremity_noPelvis':
-    from utilities import getMarkers_upperExtremity_noPelvis
+    from utils.utilities import getMarkers_upperExtremity_noPelvis
     _, _, idx_in_all_feature_markers, idx_in_all_response_markers = (
         getMarkers_upperExtremity_noPelvis())
 else:
@@ -204,7 +204,7 @@ if not os.path.exists(pathPartition):
     infoData = np.load(os.path.join(pathData_all, 'infoData.npy'),
                        allow_pickle=True).item()
     # Get partition.
-    from utilities import getPartition
+    from utils.utilities import getPartition
     partition = getPartition(idxDatasets, scaleFactors, infoData,
                              subjectSplit, idxFold)    
     # Save partition.
@@ -223,8 +223,8 @@ if not os.path.exists(pathMean) and not os.path.exists(pathSTD):
     # Instead of accumulating data to compute mean and std, we compute them
     # on the fly so that we do not have to deal with too large matrices.
     existingAggregate = (0,0,0)    
-    from utilities import update
-    from utilities import finalize
+    from utils.utilities import update
+    from utils.utilities import finalize
     for count, idx in enumerate(partition['train']): 
         c_features_all = np.load(os.path.join(
             pathData_all, "feature_{}.npy".format(idx)))
