@@ -15,7 +15,7 @@
 **Main files**:
 - `myModels.py`: script describing the model architecture for trainLSTM.py and loss functions.
 - `trainLSTM.py`: script to train LSTM model with specified hyperparameters.
-- `myModelsHyperParameters.py`: script describing the model architecture for trainLSTM.py and loss functions.
+- `myModelsHyperParameters.py`: script describing the model architecture for tuneHyperParametersLSTM.py.
 - `tuneHyperParametersLSTM.py`: script to tune certain hyperparameters and train best LSTM model.
 - `testLSTM.py`: script to test an LSTM model on a specified failure example.
 - `mySettings.py`: script with some modifiable model settings (for both trainLSTM.py and tuneHyperParametersLSTM.py).

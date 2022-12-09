@@ -4,6 +4,8 @@ from scipy.spatial.transform import Rotation as R
 from itertools import combinations
 import dataman
 import math
+import pickle as pkl
+import os
 
 # %% Metrics.
 def getMetrics(features, responses, model):
@@ -67,11 +69,32 @@ def plotLossOverEpochs(history,fig_name):
     plt.figure()
     plt.plot(history["loss"])
     plt.plot(history["val_loss"])
-    plt.ylabel('loss (mean squared error)')
-    plt.xlabel('Epoch Number');
+    plt.ylabel('loss')
+    plt.xlabel('Epoch Number')
     plt.legend(('Training','Evaluation'))
     plt.savefig(fig_name)
     plt.show()
+
+def plotLossMSEUsingPaths(history_path, save_fig_path):
+    history = pkl.load(open(history_path, "rb"))
+    plt.figure()
+    plt.plot(history["loss"])
+    plt.plot(history["val_loss"])
+    plt.ylabel('loss')
+    plt.xlabel('Epoch Number')
+    plt.legend(('Training','Evaluation'))
+    plt.savefig(os.path.join(save_fig_path, 'loss.png'))
+    plt.show()
+
+    plt.figure()
+    plt.plot(history["mean_squared_error"])
+    plt.plot(history["val_mean_squared_error"])
+    plt.ylabel('MSE')
+    plt.xlabel('Epoch Number')
+    plt.legend(('Training','Evaluation'))
+    plt.savefig(os.path.join(save_fig_path, 'MSE.png'))
+    plt.show()
+
     
 # Partition dataset.
 def getPartition(idxDatasets, scaleFactors, infoData, subjectSplit, idxFold):
@@ -526,6 +549,6 @@ def get_angle_range(segment1, segment2):
     elif (segment1 == "femur" and segment2 == "pelvis"):
         return [math.radians(45),math.radians(180)]
     else:
-        return [0,math.radians(180)]
+        return [math.radians(0),math.radians(180)]
 
 
