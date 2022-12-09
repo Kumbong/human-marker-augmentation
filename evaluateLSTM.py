@@ -4,11 +4,14 @@ import copy
 import tensorflow as tf
 import platform
 
-from mySettings import get_lstm_settings
+from mySettings import get_lstm_settings, get_lstm_tuner_settings
 
 # %% User inputs.
 # Select case you want to train, see mySettings for case-specific settings.
 case = 0
+# Set hyperparameterTuning to True if the model was trained while tuning the
+# hyperparameters
+hyperparameterTuning = False
 
 evaluationSet = 'val' # options are 'test' and 'val'
 evaluateValidation = True
@@ -23,13 +26,24 @@ else:
     pathMain = os.getcwd()    
 pathData = os.path.join(pathMain, "Data")
 pathData_all = os.path.join(pathData, "data_CS230_small")
-pathTrainedModels = os.path.join(pathMain, "trained_models_LSTM")
-pathCModel = os.path.join(pathTrainedModels, "")
+
+if hyperparameterTuning:
+    pathParameterTuning = os.path.join(
+        pathMain, "trained_models_hyperparameter_tuning_LSTM")
+    pathParameterTuningModels = os.path.join(pathParameterTuning, 
+                                             "Models", str(case))
+    pathCModel = os.path.join(pathParameterTuningModels, "")
+else:
+    pathTrainedModels = os.path.join(pathMain, "trained_models_LSTM")
+    pathCModel = os.path.join(pathTrainedModels, "")
 
 # %% Settings.
 print('Evaluating case {} for set {}'.format(case, evaluationSet))
 
-settings = get_lstm_settings(case)
+if hyperparameterTuning:
+    settings = get_lstm_tuner_settings(case)
+else:
+    settings = get_lstm_settings(case)
 augmenter_type = settings["augmenter_type"]
 poseDetector = settings["poseDetector"]
 idxDatasets = settings["idxDatasets"]
@@ -127,8 +141,6 @@ if featureWeight:
 fc = 60 # sampling frequency (Hz)
 desired_duration = 0.5
 desired_nFrames = int(desired_duration * fc)
-
-
 
 # %% Partition.
 datasetName = ' '.join([str(elem) for elem in idxDatasets])

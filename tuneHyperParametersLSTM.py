@@ -72,7 +72,6 @@ if "noise_magnitude" in settings:
     noise_type = 'per_timestep'
     if 'noise_type' in settings:
         noise_type = settings["noise_type"]
-
 # Settings for hyperparameter tuning.
 max_trials = settings["max_trials"]
 executions_per_trial = settings["executions_per_trial"]
@@ -94,7 +93,6 @@ rotations = [i*360/nRotations for i in range(0, nRotations)]
 bidirectional = False
 if 'bidirectional' in settings:
     bidirectional = settings["bidirectional"]
-
 # %% Fixed settings (no need to change that).
 featureHeight = True
 featureWeight = True
@@ -155,7 +153,6 @@ elif augmenter_type == 'upperExtremity_noPelvis':
         getMarkers_upperExtremity_noPelvis())
 else:
     raise ValueError('augmenter_type not recognized')
-
 # Each marker has 3 dimensions.
 idx_in_all_features = []
 for idx in idx_in_all_feature_markers:
@@ -211,7 +208,6 @@ if not os.path.exists(pathPartition):
 else:
     # Load partition.
     partition = np.load(pathPartition, allow_pickle=True).item()
-
 # %% Data processing: add noise and compute mean and standard deviation.
 pathMean = os.path.join(pathData_all, 'mean_{}_{}_{}_{}.npy'.format(
     partitionName, noise_type, noise_magnitude, nRotations))
