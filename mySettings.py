@@ -20,8 +20,6 @@ def get_dense_settings(a):
     return settings[str(a)]
 
 # LSTM.
-
-
 def get_lstm_settings(a):
 
     settings = {
@@ -30,7 +28,7 @@ def get_lstm_settings(a):
              "poseDetector": 'OpenPose',
              "mean_subtraction": True,
              "std_normalization": True, },
-        "0":
+        "0": # Baseline model
             {'augmenter_type': 'lowerExtremity',
              "poseDetector": 'OpenPose',
              "idxDatasets": [idx for idx in range(0, 1)],
@@ -41,13 +39,17 @@ def get_lstm_settings(a):
              "batchSize": 64,
              "idxFold": 0,
              'learning_r': 5e-05,
+             "lambda_1": 0,
+             "lambda_2": 0,
+             "lambda_3": 0,
+             "lambda_4": 0,
              "mean_subtraction": True,
              "std_normalization": True,
              "noise_magnitude": 0.018,
              "noise_type": "per_timestep",
              'nRotations': 1,
              'bidirectional': False},
-        "1":
+        "1": # Sample setting without any scaling of loss
             {'augmenter_type': 'lowerExtremity',
              "poseDetector": 'OpenPose',
              "idxDatasets": [idx for idx in range(0, 1)],
@@ -62,6 +64,7 @@ def get_lstm_settings(a):
              "lambda_1": 1,
              "lambda_2": 1,
              "lambda_3": 1,
+             "lambda_4": 1,
              "mean_subtraction": True,
              "std_normalization": True,
              "noise_magnitude": 0.018,
@@ -183,7 +186,7 @@ def get_lstm_settings(a):
              'nRotations': 1,
              'bidirectional': False},
 
-        "io_best":                
+        "io_best": # Best IOC model after tuning       
             {'augmenter_type': 'lowerExtremity',
              "poseDetector": 'OpenPose',
              "idxDatasets": [idx for idx in range(0,1)],
@@ -209,8 +212,6 @@ def get_lstm_settings(a):
     return settings[str(a)]
 
 # LSTM - Hyperparameters tuning
-
-
 def get_lstm_tuner_settings(a):
 
     settings = {
