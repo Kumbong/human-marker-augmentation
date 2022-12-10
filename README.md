@@ -1,6 +1,6 @@
 # CS-230: Human Marker Augmentation with Deep Learning using Constraints
 
-### Install requirements
+## Installation
 1. Install [Anaconda](https://www.anaconda.com/)
 2. Clone the repository to your machine.
 3. Open the Anaconda command prompt and create a conda environment: `conda create -n cs-230-project`
@@ -8,10 +8,33 @@
 5. Install [tensorflow with GPU support](https://www.tensorflow.org/install/pip) (you can probably also use CPU only if you train on a small part of the dataset).
 6. Install other dependencies. Navigate to the local directory where the repository is cloned, then: `python -m pip install -r requirements.txt`
 
-### Dataset
+## Dataset
 - A subset of the dataset is available [here](https://drive.google.com/file/d/1zstU911Jc9_Y692pjhk8smBwRnOh5hr1/view?usp=sharing). Download it into /Data. The path of the first feature time sequence should be something like /Data/data_CS230/feature_0.npy.
 
-### Overview files
+## Usage
+
+### Training (w/o tuning)
+1. Create a new training configuration in `get_lstm_settings` within `mySettings.py` and note the key name.
+2. Run `python trainLSTM.py --case KEY_NAME`
+3. The model and training history will be stored in `trained_models_LSTM` with the `KEY_NAME` as the prefix for the file name.
+
+See `train.sh` for sample training commands
+
+### Training (with hyperparameter tuning)
+1. Create a new training configuration in `get_lstm_tuner_settings` within `mySettings.py` and note the key name.
+2. Run `python tuneHyperParametersLSTM.py --case KEY_NAME`
+3. The final model will be stored in `trained_models_hyperparameter_tuning_LSTM/Models/KEY_NAME` and the trial history will be stored in `trained_models_hyperparameter_tuning_LSTM/KEY_NAME`.
+
+See `train.sh` for sample training commands
+
+### Testing
+1. Store the failure example .trc file in `test/` (say it is named `abc.trc`)
+2. Obtain the `KEY_NAME` of the model to be testing (as defined in the training sections)
+3. Run `python testLSTM.py --case KEY_NAME --fail_case abc`. If the model was obtained using hyper-parameter tuning (i.e. by running `tuneHyperParametersLSTM.py`) then add the flag `--tuned`.
+
+See `test.sh` for sample test commands
+
+## Overview of Files
 
 **Directory Structure**:
 ```shell
