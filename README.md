@@ -12,9 +12,43 @@
 - A subset of the dataset is available [here](https://drive.google.com/file/d/1zstU911Jc9_Y692pjhk8smBwRnOh5hr1/view?usp=sharing). Download it into /Data. The path of the first feature time sequence should be something like /Data/data_CS230/feature_0.npy.
 
 ### Overview files
+
+**Directory Structure**:
+```shell
+cs230-project
+├── Data
+│   └── data_CS230          # Should store data samples
+├── archive                 # Stores scripts that are used for initial data splits or are outdated
+│   ├── Dockerfile          
+│   ├── analyzeDataset.py
+│   ├── evaluateLSTM.py
+│   ├── infoDatasets.py
+│   └── splitData.py
+├── assets                  # Stores sample logs and plots (may contain logs from very old runs)
+│   ├── logs/
+│   └── plots/
+├── modeldefs               # Stores the model definition for both training and hyperparameter tuning
+│   ├── myModels.py
+│   └── myModelsHyperParameters.py
+├── mySettings.py           # Stores the configuration to run training and hyperparameter tuning with
+├── requirements.txt        # Stores the pre-requisite packages needed to run this project
+├── test/                   # Stores the failure test samples generated for qualitative evaluation
+├── test.sh                 # Contains sample commands to run testing
+├── testLSTM.py             # script to test an LSTM model on a specified failure example.
+├── train.sh                # Contains sample commands to run training
+├── trainLSTM.py            # script to train LSTM model with fixed hyperparameters.
+├── trained_models_LSTM/    # Stores models trained using trainLSTM.py
+├── trained_models_hyperparameter_tuning_LSTM/ # Stores models trained tuneHyperParametersLSTM.py
+├── tuneHyperParametersLSTM.py # script to tune certain hyperparameters and train best LSTM model.
+└── utils                   # Stores various utility scripts
+    ├── dataman.py          
+    ├── myDataGenerator.py
+    └── utilities.py
+```
+
 **Main files**:
 - `myModels.py`: script describing the model architecture for trainLSTM.py and loss functions.
-- `trainLSTM.py`: script to train LSTM model with specified hyperparameters.
+- `trainLSTM.py`: script to train LSTM model with specified fixed hyperparameters.
 - `myModelsHyperParameters.py`: script describing the model architecture for tuneHyperParametersLSTM.py.
 - `tuneHyperParametersLSTM.py`: script to tune certain hyperparameters and train best LSTM model.
 - `testLSTM.py`: script to test an LSTM model on a specified failure example.
@@ -24,7 +58,7 @@
 **Other files (you should not need to interact with these files)**:
 - `splitData.py`: script to split the data into different sets.
 - `infoDatasets.py`: some details about the dataset.
-- `myDataGenerator.py`: script describing the data generator.
+- `myDataGenerator.py`: script describing the data generator used for training and evaluation.
 - `evaluateLSTM.py`: script to evaluate LSTM model.
 - `analyzeDataset.py`: script to inspect samples from the dataset.
-- `dataman.py`: File definition for importing marker data into OpenSim
+- `dataman.py`: File definition for importing marker data into OpenSim and conversion utilities

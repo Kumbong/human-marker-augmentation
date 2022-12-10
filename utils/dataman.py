@@ -95,7 +95,7 @@ class TRCFile(object):
             col_names += [mark + '_tx', mark + '_ty', mark + '_tz']
         dtype = {'names': col_names,
                 'formats': ['int'] + ['float64'] * (3 * self.num_markers + 1)}
-        self.data = np.loadtxt(fpath, delimiter='\t', skiprows=5, dtype=dtype)
+        self.data = np.loadtxt(fpath, delimiter='\t', skiprows=5, dtype=dtype, usecols=list(range(len(col_names))))
         self.time = self.data['time']
 
         # Check the number of rows.
