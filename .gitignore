@@ -16,11 +16,6 @@ cs-230-project-aws-key.pem
 backup
 
 # Test
-# test/*
-# !test/failure_example.trc
-# !test/augmented_failure_example_reference.trc
-test/*
-
 !test/bending.trc
 !test/calf_raise_fast.trc
 !test/calf_raise_side_fast.trc
