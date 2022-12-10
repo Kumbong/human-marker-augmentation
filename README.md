@@ -1,5 +1,6 @@
 # CS-230: Human Marker Augmentation with Deep Learning using Constraints
 
+![Human Marker Augmentation Demo](assets/misc/demo.png "Human Marker Augmentation Demo")
 ## Installation
 1. Install [Anaconda](https://www.anaconda.com/)
 2. Clone the repository to your machine.
